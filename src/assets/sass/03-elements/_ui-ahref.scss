@@ -1,0 +1,8 @@
+@use '../00-settings/variables';
+a{
+  color: var(--text-color);
+  text-decoration: none;
+  :active{
+    color: var(--primary-color);
+  }
+}

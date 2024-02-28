@@ -1,0 +1,26 @@
+@use "../00-settings/variables";
+
+:root { //light theme
+  --background-color: #{variables.$background-color};
+  --background-closer-color: #{variables.$background-color-closer};
+  --text-color: #{variables.$text-color};
+  --text-gray: #{variables.$text-gray};
+  --text-white: #{variables.$text-white};
+  --primary-color: #{variables.$primary-color};
+
+}
+
+[color-scheme='dark']{
+  --background-color: #{variables.$background-dark-color};
+  --background-closer-color: #{variables.$background-darker-color};
+  --text-color: #{variables.$text-white};
+  --text-gray: #{variables.$text-gray};
+  --primary-color: #{variables.$primary-color};
+}
+
+body{
+  background-color: var(--background-color);
+  font-family: #{variables.$font-family};
+  color: var(--text-color);
+  margin: 1rem 1.5rem;
+}

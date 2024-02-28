@@ -1,0 +1,11 @@
+@use '../00-settings/variables' as variables;
+
+@mixin box{
+  border-radius: 1.5rem;
+  background-color: var(--background-closer-color);
+  padding: 1.5rem;
+  -webkit-backdrop-filter: blur(10px);  
+  backdrop-filter: blur(10px);
+  
+  
+}

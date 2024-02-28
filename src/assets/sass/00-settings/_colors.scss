@@ -1,0 +1,24 @@
+$_seasalt: #FAFBFB; // --> background
+$_white-smoke: #F2F2F2; // --> background-closer
+
+$_saffron: #F5C64C; // --> primary-color
+
+$_eerie-black: #1E1E1E; // --> background-dark-color
+$_jeet: #333333; // --> background-darker-color
+$_lime: #D0F54C; 
+$_anti_flash_white: #EBEBEB; //--> text-white
+$_platinum: #DCDFE4; // --> text-gray
+
+$linear-gradient: linear-gradient(90deg, $_saffron, $_lime);
+
+$primary-color: $_saffron;
+
+$background-color: $_seasalt;
+$background-color-closer: $_white-smoke;
+
+$background-dark-color: $_eerie-black;
+$background-darker-color: $_jeet;
+
+$text-color: $_eerie-black;
+$text-white: $_anti_flash_white;
+$text-gray: $_platinum;

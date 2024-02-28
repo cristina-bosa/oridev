@@ -6,29 +6,29 @@ const Router = createRouter({
    
    {
       path: '/',
-      name: 'UnderConstruction',
-      component: () => import ("../views/UnderConstruction.vue")
+      name: 'Home',
+      component: () => import ("../views/HomeView.vue")
     },
     // {
     //   path: '/experience',
     //   name: 'Experience',
     //   component: () => import ("../views/ExperienceView.vue") 
     // },
-    // {
-    //   path:'/education',
-    //   name: 'Education',
-    //   component: () => import ("../views/EducationView.vue")
-    // },
-    // {
-    //   path: '/projects',
-    //   name: 'Project',
-    //   component: () => import ("../views/ProjectsView.vue") 
-    // },
-    // {
-    //   path: '/about-me',
-    //   name: 'About me',
-    //   component: () => import ("../views/AboutMeView.vue") 
-    // },
+    {
+      path:'/contact',
+      name: 'Contact',
+      component: () => import ("../views/ContactView.vue")
+    },
+    {
+      path: '/projects',
+      name: 'Project',
+      component: () => import ("../views/ProjectsView.vue") 
+    },
+    {
+      path: '/about',
+      name: 'About me',
+      component: () => import ("../views/AboutMeView.vue") 
+    },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
