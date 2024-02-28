@@ -2,3 +2,30 @@
 @use '../01-tools/mixins' as mix;
 @use '../01-tools/querys' as querys;
 
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  &__presentation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 7rem;
+  }
+  &__projects{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 7rem;
+    
+    &--left{
+      flex: 0 0 20em;
+    }
+    &--right{
+      flex: 1;
+    }
+
+  }
+}
+

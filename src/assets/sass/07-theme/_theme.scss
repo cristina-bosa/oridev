@@ -20,7 +20,9 @@
 
 body{
   background-color: var(--background-color);
-  font-family: #{variables.$font-family};
+  font-family: #{variables.$regular};
   color: var(--text-color);
-  margin: 1rem 1.5rem;
+  margin: 3rem 1.5rem;
+  
+  
 }

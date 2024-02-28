@@ -11,4 +11,28 @@
   font-style: normal;
 }
 
-$font-family: 'NunitoBold', sans-serif;
+$regular: 'NunitoRegular', sans-serif;
+$bold: 'NunitoBold', sans-serif;
+
+.text{
+  &--m{
+    font-size: 1.2rem;
+    font-family: $regular;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+  &--20{
+    width: 20ch;
+    
+  }
+  &--55{
+    width: 55ch;
+    max-width: 75ch;
+  }
+  &--xxl{
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+}
