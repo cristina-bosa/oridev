@@ -10,6 +10,22 @@
   padding: 0.8rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  @include querys.mobile {
+    padding: 1.5rem;
+  }
+  &__content{
+    display: block;
+    transition: max-height .3s ease-in-out;
+    
+    
+    @include querys.mobile{
+      display: none;
+    }
+    &--active{
+      display: block;
+      max-height: 200px;
+    }
+  }
   &__items {
     display: flex;
     gap: 1.5rem;
@@ -26,6 +42,12 @@
           left: 0;
           right: 0;
           margin: auto;
+          @include querys.mobile{
+            display: none;
+            position: absolute;
+            right: 100%;
+          }
+
         }
         &:hover .navbar__svg {
           display: block;
@@ -41,11 +63,34 @@
     & > li:first-child {
       margin-right: auto;
     }
+  @include querys.mobile{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  }
+  &__hamb{
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    & svg {
+      display: block;
+    }
+    @include querys.mobile{
+      display: block;
+    }
   }
 }
 
 a.router-link-active.router-link-exact-active svg {
   display: block;
+  
+}
+.router-link-active.router-link-exact-active{
+  font-weight: bold;
 }
 
 @keyframes strokeanimation {
