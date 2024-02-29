@@ -95,7 +95,7 @@
         </figure>
       </article>
     </section>
-    <section class="container__contact">
+    <section id="contact" class="container__contact">
       <article>
         <h2>Contacto</h2>
         <p class="text--55">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, officia totam accusamus saepe qui non ad, quos iure nobis minima voluptas, quisquam illo modi dolorem nihil incidunt reiciendis. Possimus, rerum!</p>
