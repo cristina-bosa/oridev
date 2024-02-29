@@ -101,9 +101,7 @@
         <p class="text--55">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum, officia totam accusamus saepe qui non ad, quos iure nobis minima voluptas, quisquam illo modi dolorem nihil incidunt reiciendis. Possimus, rerum!</p>
       </article>
       <article>
-        <figure>
           <img src="../assets/svg/contact-me.svg" alt="">
-        </figure>
       </article>
     </section>
   </main>

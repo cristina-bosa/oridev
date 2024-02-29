@@ -2,8 +2,8 @@
 <template>
   <TheNavBar />
   <RouterView />
-  <footer>
-    <p>© 2021 Cristina</p>
+  <footer class="footer">
+    <p> &copy Oridev | {{ year }}</p>
   </footer>
 </template>
 
@@ -16,10 +16,26 @@ export default defineComponent({
   },
   setup() {
 
-
+    const year = new Date().getFullYear();
     return {
-      
+      year,
     }
   }
 })
 </script>
+<style lang="scss" scoped>
+.footer {
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+
+  p {
+    font-size: .7rem;
+    font-weight: bold;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    background-color: var(--primary-color);
+    width: max-content;
+  }
+}
+</style>

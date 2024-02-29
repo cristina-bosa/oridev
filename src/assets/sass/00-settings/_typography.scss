@@ -25,9 +25,22 @@ $bold: 'NunitoBold', sans-serif;
     width: 20ch;
     
   }
+  &--25{
+    width: 25ch;
+  }
+  &--60{
+    width: 60ch;
+  }
   &--55{
     width: 55ch;
-    max-width: 75ch;
+   
+  }
+  &--xl{
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  
   }
   &--xxl{
     font-size: 3rem;

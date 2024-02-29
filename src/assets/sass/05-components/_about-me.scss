@@ -1,0 +1,79 @@
+@use "../00-settings/variables";
+@use "../01-tools/mixins" as mix;
+@use "../01-tools/querys" as querys;
+
+.about-me {
+  &__presentation {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+    &--left {
+      flex: 1;
+    }
+    &--right {
+      flex: 0 0 20em;
+    }
+  }
+  &__banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3.5rem;
+  }
+  &__hobbies {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    &__imgs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      figure{
+        position: relative;
+        img {
+          border-radius: 0.5rem;
+        }
+        & .svg__splend{
+          display: none;
+          left: 50%;
+          bottom: 40px;
+          z-index: 1;
+          transform: rotate(-45deg);
+          position: absolute;          
+          path{
+            stroke: var(--text-white);
+            stroke-width: 2;
+
+          
+          }
+        }
+        &:hover .svg__splend{
+          display: block;
+          stroke-dasharray: 60;
+          stroke-dashoffset: 60;
+          animation: 500ms cubic-bezier(0.27, 0.22, 0.44, 1.5) 250ms 1 normal both
+            running strokeanimation;
+        }
+
+      }
+      @include querys.mobile {
+        flex-direction: column;
+        gap: 1.5rem;
+        figure{
+          img{
+            width: 100%;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+figure{
+  margin: 0;
+}
