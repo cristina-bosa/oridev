@@ -1,0 +1,17 @@
+@use "../00-settings/variables";
+
+.bg {
+  &--develop {
+    background-color: var(--primary-color);
+  }
+  &--design {
+    background-color: variables.$design;
+  }
+  &--both {
+    background: linear-gradient(
+      to bottom right,
+      variables.$primary-color,
+      variables.$design
+    );
+  }
+}

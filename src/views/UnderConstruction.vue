@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="container">
     <img src="../assets/svg/under-construction.svg" alt="Work in">
 
     <h1>Oopsy!</h1>

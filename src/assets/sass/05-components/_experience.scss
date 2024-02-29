@@ -1,0 +1,51 @@
+@use "../00-settings/variables";
+@use "../01-tools/mixins" as mix;
+@use "../01-tools/querys" as querys;
+
+.experiences {
+  &__time-line {
+    border-left: 0.05rem dashed var(--text-color);
+    position: relative;
+    padding-left: 1rem;
+    &__item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+  }
+}
+
+.experience{
+  &--years{
+    font-size: .8rem;
+    color: var(--text-dark);
+    background-color: var(--background-closer-color);
+    padding: .5em 1em;
+    border-radius: 1.5em;
+    max-width: max-content;
+  }
+  &--title{    
+      margin-top: 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -1.3rem;
+        width: .5rem;
+        height: .5rem;
+        background-color: var(--primary-color);
+        transform: rotate(45deg);
+        
+      }    
+  }
+  &--company{
+    font-size: 1rem;
+    color: var(--text-dark);
+  }
+  &--description{
+    line-height: 1.5rem;
+    color: var(--text-muted-color);
+  }
+}
