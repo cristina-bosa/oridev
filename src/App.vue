@@ -1,7 +1,16 @@
  
 <template>
   <TheNavBar />
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+    <!-- <transition
+      enter-active-class="circle-enter-active"
+      leave-active-class="circle-enter-active">
+      <component :is="Component" />
+    </transition> -->
+  </RouterView>
   <footer class="footer">
     <p> &copy Oridev | {{ year }}</p>
   </footer>
@@ -37,5 +46,15 @@ export default defineComponent({
     background-color: var(--primary-color);
     width: max-content;
   }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.22s ease-out;
 }
 </style>

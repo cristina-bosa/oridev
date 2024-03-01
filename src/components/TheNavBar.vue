@@ -52,7 +52,7 @@
         </li>
         <li>
 
-          <a href="/gi#contact">
+          <a href="/#contact">
             Contacto
             <svg class="navbar__svg" width="60" height="10" viewBox="0 0 81 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
