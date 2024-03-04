@@ -88,11 +88,6 @@
           </div>
         </section>
       </article>
-      <article>
-        <figure>
-          <img src="../assets/svg/experience.svg" alt="">
-        </figure>
-      </article>
     </section>
     <section id="contact" class="container__contact">
       <article>
