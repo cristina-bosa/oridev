@@ -1,0 +1,79 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Triggers",
+      "description": "Triggers es un proyecto que se basa en la creacion de una aplicacion movil, la cual se enfoca en la creacion de eventos, desde la creacion de la imagen hasta la programacion de la aplicacion.",
+      "tags": [
+        "Diseño UX/UI",
+        "Branding",
+        "Desarrollo"
+      ],
+      "src_cover": "/images/placeholderimg.jpg",
+      "gallery": [
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Twelf Solutions",
+      "description": "Desarollo de una marca para una empresa en crecimiento, la cual se enfoca en la creación de aplicaciones mediante SalesForce. Además, se ha diseñado la página web.",
+      "tags": [
+        "Diseño UX/UI",
+        "Branding"
+      ],
+      "src_cover": "/images/placeholderimg.jpg",
+      "gallery": [
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Joafia",
+      "description": "Dos personas que se unen para el resto de sus vidas, es un proyecto que se basa en la creacion de una boda, desde la papeleria hasta la pagina web, todo con un mismo estilo y concepto.",
+      "tags": [
+        "Branding",
+        "Diseño UX/UI",
+        "Pepeleria"
+      ],
+      "src_cover": "/images/placeholderimg.jpg",
+      "gallery": [
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "PL Ships",
+      "description": "Creación de la marca, así como la página. La página es una web bastante sencilla que era lo que quería el cliente",
+      "tags": [
+        "Diseño UX/UI",
+        "Branding",
+        "Desarrollo"
+      ],
+      "src_cover": "/images/placeholderimg.jpg",
+      "gallery": [
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg",
+        "/images/placeholderimg.jpg"
+      ]
+    }
+  ]
+}

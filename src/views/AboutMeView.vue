@@ -28,19 +28,27 @@
             officiis quod ipsa quidem dolores deserunt ex quam, dolore alias?
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
           </p>
-          <p>Mis skills</p>
-          <ul>
-            <li>Lorem ipsum dolor</li>
-            <li>Figma</li>
-            <li>Figma</li>
-            <li>Figma</li>
-          </ul>
-          <ul>
-            <li>Lorem ipsum dolor</li>
-            <li>Figma</li>
-            <li>Figma</li>
-            <li>Figma</li>
-          </ul>
+          <div class="about-me__presentation__skills">
+            <h3>Mis skills</h3>
+            <ul>
+              <li><img src="/path.svg">Figma</li>
+              <li><img src="/path.svg">Illustrator</li>
+              <li><img src="/path.svg">Photoshop</li>
+              <li><img src="/path.svg">InDesign</li>
+              <li><img src="/path.svg">Affinity 2</li>
+              <li><img src="/path.svg">Prototipado de baja y alta calidad</li>
+            </ul>
+            <ul>
+              <li><img src="/path.svg">HTML</li>
+              <li><img src="/path.svg">CSS3/SASS</li>
+              <li><img src="/path.svg">JavaScript/TypeScript</li>
+              <li><img src="/path.svg">Vue3</li>
+              <li><img src="/path.svg">Node</li>
+              <li><img src="/path.svg">WIP: Python/React</li>
+            </ul>
+
+          </div>
+
         </article>
         <article class="about-me__presentation--right">
           <p>
@@ -59,9 +67,8 @@
       </article>
       <article class="about-me__hobbies">
         <p class="text--60">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel nobis,
-          obcaecati perferendis, odio animi totam nemo, ab impedit ut beatae
-          porro voluptatibus! Quas omnis voluptatem nemo earum quo, magnam quos.
+          Fuera de las pantallas, disfruto de un buen café, leo libros de aventuras y fantasías, levanto hierros de vez en
+          cuando y disfruto de los atarceres y la lluvia.
         </p>
         <div class="about-me__hobbies__imgs">
           <figure>

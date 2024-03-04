@@ -37,6 +37,8 @@ export default defineComponent({
   color: var(--text-color);
   display: flex;
   justify-content: center;
+  margin-top: 7rem;
+  margin-bottom: 3rem;
 
   p {
     font-size: .7rem;
