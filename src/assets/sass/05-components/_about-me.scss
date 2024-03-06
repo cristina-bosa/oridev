@@ -15,6 +15,34 @@
     &--right {
       flex: 0 0 20em;
     }
+    &__skills{
+      display: flex;
+      gap: 1.5rem;
+      justify-content: space-between;
+      & .about-me__svg{
+        display: none;
+        position: absolute;
+        
+      }
+      &__item{
+        border-radius: .5rem;
+        padding: 1rem;
+        width: 100%;
+        
+        &:hover .about-me__svg{
+          display: block;
+          stroke-dasharray: 60;
+          stroke-dashoffset: 60;
+          animation: 500ms cubic-bezier(0.27, 0.22, 0.44, 1.5) 250ms 1 normal both
+            running strokeanimation;
+        }
+
+        &:last-child{
+          border: 2px solid var(--primary-color);
+        }
+      }
+
+    }
   }
   &__banner {
     display: flex;

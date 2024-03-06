@@ -29,14 +29,6 @@
         <h2>Proyectos</h2>
         <p class="text-m">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en
           sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan.</p>
-        <article class="projects__legend">
-          <h3 class="projects__legend__title">Leyenda</h3>
-          <div class="projects__legend__tags">
-            <span>Diseño</span>
-            <span>Desarrollo</span>
-            <span>Diseño y desarrollo</span>
-          </div>
-        </article>
       </article>
       <article class="container__projects--right projects">
 
@@ -54,7 +46,10 @@
 
           </div>
           <p> {{ project.description }} </p>
-
+          <div class="projects__box__tag">
+            <span v-for="tag in project.tags" :key="tag">{{tag}}</span>
+          </div>
+          
           <button class="btn btn--secondary"> Saber más</button>
           <svg class="projects__box__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -87,11 +82,6 @@
             </ul>
           </div>
         </section>
-      </article>
-      <article>
-        <figure>
-          <img src="../assets/svg/experience.svg" alt="">
-        </figure>
       </article>
     </section>
     <section id="contact" class="container__contact">
