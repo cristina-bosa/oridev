@@ -9,14 +9,14 @@
         "Branding",
         "Desarrollo"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/sunset.png"
       ]
     },
     {
@@ -27,14 +27,14 @@
         "Diseño UX/UI",
         "Branding"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     },
     {
@@ -46,14 +46,14 @@
         "Diseño UX/UI",
         "Pepeleria"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     },
     {
@@ -65,14 +65,14 @@
         "Branding",
         "Desarrollo"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     }
   ]

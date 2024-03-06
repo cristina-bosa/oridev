@@ -50,7 +50,8 @@
             <span v-for="tag in project.tags" :key="tag">{{tag}}</span>
           </div>
           
-          <button class="btn btn--secondary"> Saber más</button>
+          
+          <router-link :to="'/projects/'+project.id" class="btn btn--secondary"> Saber más</router-link>
           <svg class="projects__box__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
