@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import DataProjects from '../data/projects'
+import DataProjects from '../data/projects.json'
 import { useRoute } from 'vue-router'
 export default defineComponent({
   setup() {
@@ -47,7 +47,7 @@ export default defineComponent({
     }
     const route = useRoute()
     const projects = DataProjects.projects
-    const id = parseInt(route.params.id)
+    const id = parseInt(route.params.id.toString())
     const playSound = () => {
       const audio = new Audio('/assets/sounds/switch-on.mp3')
       audio.play()
