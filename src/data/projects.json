@@ -3,20 +3,20 @@
     {
       "id": 1,
       "name": "Triggers",
-      "description": "Triggers es un proyecto que se basa en la creacion de una aplicacion movil, la cual se enfoca en la creacion de eventos, desde la creacion de la imagen hasta la programacion de la aplicacion.",
+      "description": "Triggers es un proyecto que se basa en la creación de una aplicación móvil, me he encargado de la parte gráfica de la aplicación así como pequeños desarrollo de apoyo al cliente.",
       "tags": [
         "Diseño UX/UI",
         "Branding",
         "Desarrollo"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/sunset.png"
       ]
     },
     {
@@ -27,14 +27,14 @@
         "Diseño UX/UI",
         "Branding"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     },
     {
@@ -46,14 +46,14 @@
         "Diseño UX/UI",
         "Pepeleria"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     },
     {
@@ -65,14 +65,14 @@
         "Branding",
         "Desarrollo"
       ],
-      "src_cover": "/images/placeholderimg.jpg",
+      "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg",
-        "/images/placeholderimg.jpg"
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png",
+        "/assets/img/book.png"
       ]
     }
   ]
