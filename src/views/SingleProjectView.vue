@@ -30,7 +30,7 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue'
 import DataProjects from '../data/projects'
 import { useRoute } from 'vue-router'
