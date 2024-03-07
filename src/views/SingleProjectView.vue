@@ -8,7 +8,7 @@
         </p>
       </article>
       <article>
-        
+
         <h2 class="text--m">Tags:</h2>
         <div class="projects__tags">
           <span v-for="tag in project.tags">{{ tag }}</span>
@@ -67,7 +67,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.projects{
+.projects {
   margin-top: 5rem;
 }
 
