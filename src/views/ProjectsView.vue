@@ -5,7 +5,8 @@
         <h1 class="text--xxl text--20">
           Proyectos
         </h1>
-        <p class="text--m text--55">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en
+        <p class="text--m text--55">Cada proyecto es más que una simple colección de diseños y códigos; es una historia
+          en
           sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan..</p>
       </article>
       <article>
@@ -13,19 +14,9 @@
       </article>
     </section>
     <section class="container__projects">
-      <article class="container__projects--left">
-        <article class="projects__legend">
-          <h3 class="projects__legend__title">Leyenda</h3>
-          <div class="projects__legend__tags">
-            <span>Diseño</span>
-            <span>Desarrollo</span>
-            <span>Diseño y desarrollo</span>
-          </div>
-        </article>
-      </article>
       <article class="container__projects--right projects">
 
-        <div class="projects__box"
+        <div class="projects__box" @mouseenter="playSound" v-on:click="singleProject(project.id)"
           :class="{ 'bg--develop': project.tags[0] === 'Desarrollo', 'bg--both': project.tags.length >= 2, 'bg--design': project.tags[0] === 'Diseño UX/UI' }"
           v-for="project in projects" :key="project.id">
           <div>
@@ -40,7 +31,7 @@
           </div>
           <p> {{ project.description }} </p>
 
-          <button class="btn btn--secondary"> Saber más</button>
+          <button class="btn btn--secondary" v-on:click="singleProject(project.id)"> Saber más </button>
           <svg class="projects__box__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
@@ -59,18 +50,38 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useRouter } from 'vue-router'
 import DataProjects from '../data/projects.json'
 export default defineComponent({
-  setup () {
+  setup() {
+    const router = useRouter()
     const projects = DataProjects.projects
-
+    const playSound = () =>{
+      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      audio.play()
+    }
+    const singleProject = (projectId) =>{
+      router.push({
+        name: 'SingleProject',
+        params: { id: projectId }
+      })
+    }
     return {
-      projects
+      playSound,
+      projects,
+      singleProject
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
+.projects__box {
+  @for $i from 1 through 90 {
+    &:nth-child(#{$i}) {
+      margin-top: ((($i - 1) % 4) - 3) * 1.5rem;
 
+    }
+  }
+}
 </style>

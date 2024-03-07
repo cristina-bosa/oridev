@@ -1,19 +1,24 @@
 <template>
   <main class="container">
-    <section class="container__presentation">
+    <section class="container__projects__presentation">
       <article>
-        <h1 class="text--xxl text--20">{{ project.name }}</h1>
-        <p class="text--m text--55">
+        <h1 class="text--xl text--20">{{ project.name }}</h1>
+        <p class="text--55">
           {{ project.description }}
         </p>
       </article>
       <article>
-        <span v-for="tag in project.tags">{{ tag }}</span>
+        
+        <h2 class="text--m">Tags:</h2>
+        <div class="projects__tags">
+          <span v-for="tag in project.tags">{{ tag }}</span>
+
+        </div>
       </article>
     </section>
     <section>
       <article class="container__projects--right projects">
-        <div class="projects__img" v-on:click="showBigger" v-for="img in project.gallery">
+        <div class="projects__img" v-on:click="showBigger" @mouseenter="playSound" v-for="img in project.gallery">
           <img :src="img" alt="" height="350px">
           <img v-if="isBigger" class="bigger-image" :src="img" alt="">
 
@@ -43,20 +48,29 @@ export default defineComponent({
     const route = useRoute()
     const projects = DataProjects.projects
     const id = parseInt(route.params.id)
+    const playSound = () => {
+      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      audio.play()
+    }
 
     const project = projects.find(project => project.id === id)
     return {
       isBigger,
       showBigger,
       hideBigger,
-      project
+      project,
+      playSound
 
     }
   }
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.projects{
+  margin-top: 5rem;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
