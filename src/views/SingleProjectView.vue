@@ -61,9 +61,9 @@ export default defineComponent({
 }
 
 .projects__img {
-  @for $i from 1 through 6 {
+  @for $i from 1 through 90 {
     &:nth-child(#{$i}) {
-      margin-top: ((($i - 1) % 3) - 2) * 1.5rem;
+      margin-top: ((($i - 1) % 4) - 2) * 1.5rem;
       @include querys.mobile {
             margin-top: 0;
       }
