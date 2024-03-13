@@ -95,4 +95,15 @@ export default defineComponent({
   z-index: 1000;
   /* Asegúrate de que esté por encima de la capa modal */
 }
+@use '../assets/sass/01-tools/querys.scss' as querys;
+.projects__img {
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      margin-top: ((($i - 1) % 3) - 2) * 1.5rem;
+      @include querys.mobile {
+            margin-top: 0;
+      }
+    }
+  }
+}
 </style>

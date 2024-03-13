@@ -76,11 +76,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/sass/01-tools/querys.scss' as querys;
 .projects__box {
-  @for $i from 1 through 90 {
+  @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
-      margin-top: ((($i - 1) % 4) - 3) * 1.5rem;
-
+      margin-top: ((($i - 1) % 3) - 2) * 1.5rem;
+      @include querys.mobile {
+            margin-top: 0;
+      }
     }
   }
 }
