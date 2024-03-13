@@ -9,14 +9,11 @@
         "Branding",
         "Desarrollo"
       ],
-      "src_cover": "/assets/img/book.png",
+      "src_cover": "/assets/img/triggers/marca.jpg",
       "gallery": [
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/sunset.png"
+        "/assets/img/triggers/marca.jpg",
+        "/assets/img/triggers/mobile-dark.jpg",
+        "/assets/img/triggers/mobile.jpg"
       ]
     },
     {
@@ -46,14 +43,10 @@
         "Diseño UX/UI",
         "Pepeleria"
       ],
-      "src_cover": "/assets/img/book.png",
+      "src_cover": "/assets/img/joafia/marca.jpg",
       "gallery": [
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png"
+        "/assets/img/joafia/marca.jpg",
+        "/assets/img/joafia/mobile.jpg"
       ]
     },
     {
