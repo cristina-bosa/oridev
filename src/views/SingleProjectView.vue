@@ -6,14 +6,6 @@
         <p class="text--55">
           {{ project.description }}
         </p>
-<<<<<<< HEAD
-      </article>
-      <article>
-
-        <h2 class="text--m">Tags:</h2>
-=======
-
->>>>>>> develop
         <div class="projects__tags">
           <span v-for="tag in project.tags">{{ tag }}</span>
         </div>
@@ -100,12 +92,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-=======
 @use '../assets/sass/01-tools/querys.scss' as querys;
 
 
->>>>>>> develop
 .projects {
   margin-top: 5rem;
 }
