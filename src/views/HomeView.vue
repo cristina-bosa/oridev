@@ -27,14 +27,10 @@
     <section class="container__projects">
       <article class="container__projects--left">
         <h2>Proyectos</h2>
-        <svg width="81" height="10" viewBox="0 0 81 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.44824 6.45028C1.76808 5.06431 3.3027 3.98412 4.48562 3.39266C5.74378 2.76358 6.2432 4.56064 6.7434 5.45807C7.24156 6.35182 7.73474 7.38471 8.47471 8.11072C9.00459 8.6306 9.27379 7.70203 9.48717 7.321C10.2131 6.02476 10.5911 4.23117 11.9171 3.38253C12.9028 2.75164 13.9832 4.10313 14.752 4.58736C18.8786 7.18679 23.0314 7.48232 27.8329 7.24C33.4435 6.95685 39.0276 6.25282 44.6195 5.74156C50.2302 5.22858 55.8614 4.97786 61.4668 4.40512C67.631 3.77527 73.7069 2.72959 79.8126 1.71198" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-
         <p class="text-m">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en
           sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan.</p>
-          <router-link class="btn btn--primary" to="/projects">Ver todos los proyectos
-            <svg class="btn__svg__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
+        <router-link class="btn btn--primary" to="/projects">Ver todos los proyectos
+          <svg class="btn__svg__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
             <path d="M1.75977 15.9925L32.0297 7.94684" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
@@ -42,7 +38,7 @@
             <path d="M24.5903 21.7182L35.3392 12.0537" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
             <path d="M46.4839 25.4132L47.5097 16.4412" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
           </svg>
-          </router-link>
+        </router-link>
       </article>
       <article class="container__projects--right projects">
 
@@ -77,9 +73,6 @@
     <section class="container__experience">
       <article class="container__experience--left">
         <h2>Experiencia</h2>
-        <svg width="81" height="10" viewBox="0 0 81 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.44824 6.45028C1.76808 5.06431 3.3027 3.98412 4.48562 3.39266C5.74378 2.76358 6.2432 4.56064 6.7434 5.45807C7.24156 6.35182 7.73474 7.38471 8.47471 8.11072C9.00459 8.6306 9.27379 7.70203 9.48717 7.321C10.2131 6.02476 10.5911 4.23117 11.9171 3.38253C12.9028 2.75164 13.9832 4.10313 14.752 4.58736C18.8786 7.18679 23.0314 7.48232 27.8329 7.24C33.4435 6.95685 39.0276 6.25282 44.6195 5.74156C50.2302 5.22858 55.8614 4.97786 61.4668 4.40512C67.631 3.77527 73.7069 2.72959 79.8126 1.71198" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
         <p>Cada proyecto es más que una simple colección de diseños y códigos; es una historia en sí misma, donde la
           pasión por la excelencia y la atención al detalle se entrelazan.</p>
       </article>
@@ -101,9 +94,6 @@
     <section id="contact" class="container__contact">
       <article>
         <h2>Contacto</h2>
-        <svg width="81" height="10" viewBox="0 0 81 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.44824 6.45028C1.76808 5.06431 3.3027 3.98412 4.48562 3.39266C5.74378 2.76358 6.2432 4.56064 6.7434 5.45807C7.24156 6.35182 7.73474 7.38471 8.47471 8.11072C9.00459 8.6306 9.27379 7.70203 9.48717 7.321C10.2131 6.02476 10.5911 4.23117 11.9171 3.38253C12.9028 2.75164 13.9832 4.10313 14.752 4.58736C18.8786 7.18679 23.0314 7.48232 27.8329 7.24C33.4435 6.95685 39.0276 6.25282 44.6195 5.74156C50.2302 5.22858 55.8614 4.97786 61.4668 4.40512C67.631 3.77527 73.7069 2.72959 79.8126 1.71198" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
-        </svg>
         <p class="text--60"><strong>La magia sucede cuando la creatividad se encuentra con la dedicación.</strong></p>
         <p class="text--60">Estoy aquí para ofrecerte ambas cosas. Ya sea que estés buscando un diseño impactante,
           un desarrollo sólido o una estrategia digital efectiva, estoy lista para trabajar contigo mano a mano.</p>
@@ -132,7 +122,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {useRouter} from 'vue-router'
+import { useRouter } from 'vue-router'
 import TheNavBar from '../components/TheNavBar.vue';
 import DataProjects from '../data/projects.json'
 import DataExperience from '../data/experience.json'
@@ -145,18 +135,18 @@ export default defineComponent({
     const router = useRouter()
     const projects = DataProjects.projects
     const experiences = DataExperience.experience
-    const playSound = () =>{
+    const playSound = () => {
       const audio = new Audio('/assets/sounds/switch-on.mp3')
       audio.play()
     }
-    const singleProject = (projectId) => {     
-      router.push({name: 'SingleProject', params: {id: projectId}})
+    const singleProject = (projectId) => {
+      router.push({ name: 'SingleProject', params: { id: projectId } })
     }
-    
+
     return {
       projects,
       experiences,
-      playSound, 
+      playSound,
       singleProject
     }
   }
@@ -165,12 +155,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use '../assets/sass/01-tools/querys.scss' as querys;
+
 .projects__box {
   @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
       margin-top: ((($i - 1) % 3) - 2) * 1.5rem;
+
       @include querys.mobile {
-            margin-top: 0;
+        margin-top: 0;
       }
     }
   }
