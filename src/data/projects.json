@@ -3,11 +3,23 @@
     {
       "id": 1,
       "name": "Triggers",
-      "description": "Triggers es un proyecto que se basa en la creación de una aplicación móvil, me he encargado de la parte gráfica de la aplicación así como pequeños desarrollo de apoyo al cliente.",
+      "description": "Triggers es un proyecto que se basa en la creación de una aplicación móvil, me han encargado la realización de la parte gráfica de la aplicación así como soporte en el desarrollo de la misma.",
+      "urls":[
+        {
+          "name": "Play Store",
+          "url": "https://play.google.com/store/apps/details?id=com.nrg.triggers"
+        },
+        {
+          "name": "Apple Store",
+          "url": "https://apps.apple.com/es/app/5g-triggers/id6476554909"
+         
+        }
+      ],
       "tags": [
+        "Diseño móvil",
         "Diseño UX/UI",
         "Branding",
-        "Desarrollo"
+        "Desarrollo móvil"
       ],
       "src_cover": "/assets/img/triggers/marca.jpg",
       "gallery": [
@@ -20,6 +32,12 @@
       "id": 2,
       "name": "Twelf Solutions",
       "description": "Desarollo de una marca para una empresa en crecimiento, la cual se enfoca en la creación de aplicaciones mediante SalesForce. Además, se ha diseñado la página web.",
+      "urls":[
+        {
+          "name": "Web",
+          "url": "https://twelf.es"
+        }
+      ],
       "tags": [
         "Diseño UX/UI",
         "Branding"
@@ -38,6 +56,12 @@
       "id": 3,
       "name": "Joafia",
       "description": "Dos personas que se unen para el resto de sus vidas, es un proyecto que se basa en la creacion de una boda, desde la papeleria hasta la pagina web, todo con un mismo estilo y concepto.",
+      "urls":[
+        {
+          "name": "Web",
+          "url": "https://joafia.es"
+        }
+      ],
       "tags": [
         "Branding",
         "Diseño UX/UI",
@@ -53,6 +77,12 @@
       "id": 4,
       "name": "PL Ships",
       "description": "Creación de la marca, así como la página. La página es una web bastante sencilla que era lo que quería el cliente",
+      "urls":[
+        {
+          "name": "Web",
+          "url": "https://plships.com"
+        }
+      ],
       "tags": [
         "Diseño UX/UI",
         "Branding",
