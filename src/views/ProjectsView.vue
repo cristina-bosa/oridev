@@ -57,7 +57,7 @@ export default defineComponent({
     const router = useRouter()
     const projects = DataProjects.projects
     const playSound = () =>{
-      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      const audio = new Audio('/assets/sounds/menu-open.mp3')
       audio.play()
     }
     const singleProject = (projectId) =>{
@@ -76,11 +76,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+@use '../assets/sass/01-tools/querys.scss' as querys;
 .projects__box {
   @for $i from 1 through 90 {
     &:nth-child(#{$i}) {
-      margin-top: ((($i - 1) % 4) - 3) * 1.5rem;
-
+      margin-top: ((($i - 1) % 4) - 2) * 1.5rem;
+      @include querys.mobile {
+            margin-top: 0;
+      }
     }
   }
 }

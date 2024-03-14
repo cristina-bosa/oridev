@@ -2,7 +2,7 @@
 @use "../01-tools/mixins" as mix;
 @use "../01-tools/querys" as querys;
 
-.container__projects__presentation{
+.container__projects__presentation {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -10,35 +10,49 @@
   gap: 1.5rem;
   margin-top: 7rem;
   flex-wrap: wrap;
-  @include querys.mobile{
+
+  @include querys.mobile {
     display: flex;
     justify-content: center;
     align-items: center;
-    h1{
+
+    h1 {
       font-size: 1.5rem;
     }
-    p{
+
+    p {
       width: 100%;
     }
 
   }
 }
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
-  &__tags{
+
+  &__tags,
+  &__urls {
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
-    span{
+
+    span,
+    a {
       font-size: 1rem;
-      background-color: lighten(variables.$primary-color, 33%);
+      background-color: variables.$background-color-closer;
       padding: .5rem;
       border-radius: .5rem;
+
+      &:hover {
+        background-color: darken(variables.$background-color-closer, 14%);
+      }
     }
 
+
   }
+
   &__box {
     position: relative;
     display: flex;
@@ -49,19 +63,21 @@
     justify-content: space-between;
     height: 380px;
     background-color: variables.$design;
-    &__tag{
+
+    &__tag {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       gap: .2rem;
-      
-      span{
+
+      span {
         font-size: .8rem;
         background-color: var(--text-white);
         border-radius: .5rem;
         padding: .2rem;
       }
     }
+
     p {
       visibility: hidden;
       opacity: 0;
@@ -72,7 +88,8 @@
       width: 100%;
       overflow: hidden;
     }
-    span{
+
+    span {
       visibility: hidden;
 
     }
@@ -87,7 +104,7 @@
 
     &:hover {
       cursor: pointer;
-      
+
       button,
       p,
       span {
@@ -95,9 +112,10 @@
         visibility: visible;
       }
     }
+
     @for $i from 1 through 90 {
       &:nth-child(#{$i}) {
-          @include querys.mobile {
+        @include querys.mobile {
           margin-top: 0;
         }
       }
@@ -138,7 +156,8 @@
     }
 
   }
-  &__img{
+
+  &__img {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -148,31 +167,34 @@
     height: 380px;
     background-color: variables.$design;
     filter: brightness(0.4);
-    
-    img{
+
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: .5rem;
-    
+
     }
 
     @for $i from 1 through 90 {
       &:nth-child(#{$i}) {
         margin-top: ((($i - 1) % 4) - 3) * 1.5rem;
+
         @include querys.mobile {
           margin-top: 0;
         }
       }
     }
-    &:hover{
+
+    &:hover {
       filter: brightness(1);
       cursor: pointer;
-      button{
+
+      button {
         opacity: 1;
         visibility: visible;
       }
-    
+
     }
   }
 
