@@ -77,7 +77,7 @@
         </article>
         <article class="about-me__presentation--right">
           <p>En cada proyecto, mi objetivo es dejar una huella personal y ofrecer resultados excepcionales que superen las expectativas. Estoy comprometida a convertir mi pasión en un motor para el éxito, no solo para mi, sino también para aquellos con quienes colaboro.</p>
-          <a href="/path.svg" download="CV - Cristina Bosa" class="btn btn--primary">Descargar CV
+          <a href="/assets/cv/CV_CristinaBosa_develop_design.pdf" download="CV - Cristina Bosa" class="btn btn--primary">Descargar CV
             <svg class="btn__svg__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
