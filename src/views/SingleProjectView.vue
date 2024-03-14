@@ -2,22 +2,18 @@
   <main class="container">
     <section class="container__projects__presentation">
       <article>
-        <h1 class="text--xl text--20">{{ project.name }}</h1>
+        <h1 class="text--l text--20">{{ project.name }}</h1>
         <p class="text--55">
           {{ project.description }}
         </p>
-      </article>
-      <article>
 
-        <h2 class="text--m">Tags:</h2>
         <div class="projects__tags">
           <span v-for="tag in project.tags">{{ tag }}</span>
         </div>
-        <h2 class="text--m">Links:</h2>
         <div class="projects__urls">
-
-          <a v-for="url in project.urls" :href="url.url" target="_blank" rel="noopener noreferrer"> <svg width="16"
-              height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <a @mouseenter="playSoundLink()" v-for="url in project.urls" :href="url.url" target="_blank"
+            rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1304_17)">
                 <path
                   d="M6.85645 3.42855L8.53 1.75488C10.108 0.176923 12.6663 0.176923 14.2443 1.75488C15.8223 3.33284 15.8223 5.89121 14.2443 7.46917L12.5707 9.14284"
@@ -35,21 +31,19 @@
               </defs>
             </svg> {{ url.name }}</a>
         </div>
-
-      </article>
-      <article>
       </article>
     </section>
     <section>
       <article class="container__projects--right projects">
-
-        <div class="projects__img" @mouseenter="playSound" v-for="img in project.gallery">
-          <img :src="img" alt="" height="350px">
-        </div>
-
+        <figure class="projects__img" @mouseenter="playSound" v-on:click="openModal(img)"
+          v-for="img in project.gallery">
+          <img :src="img" :alt="project.name">
+        </figure>
       </article>
-
     </section>
+    <div class="modal" v-if="selectedImg" v-on:click="closeModal()">
+      <img class="selectedImg" :src="selectedImg" height="600px">
+    </div>
   </main>
 </template>
 
@@ -59,20 +53,39 @@ import DataProjects from '../data/projects'
 import { useRoute } from 'vue-router'
 export default defineComponent({
   setup() {
-
     const route = useRoute()
     const projects = DataProjects.projects
     const id = parseInt(route.params.id)
+    const selectedImg = ref('')
+    const isModalOpen = ref(false)
+
     const playSound = () => {
-      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      const audio = new Audio('/assets/sounds/menu-open.mp3')
       audio.play()
+    }
+    const playSoundLink = () => {
+      const audio = new Audio('/assets/sounds/plunger-immediate.mp3')
+      audio.play()
+    }
+
+    const openModal = (img) => {
+      selectedImg.value = img
+      isModalOpen.value = true
+    }
+    const closeModal = () => {
+      isModalOpen.value = false
+      selectedImg.value = ''
     }
 
     const project = projects.find(project => project.id === id)
     return {
 
       project,
-      playSound
+      playSound,
+      playSoundLink,
+      openModal,
+      closeModal,
+      selectedImg,
 
     }
   }
@@ -81,6 +94,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use '../assets/sass/01-tools/querys.scss' as querys;
+
 
 .projects {
   margin-top: 5rem;
@@ -92,6 +106,28 @@ a {
   gap: .5rem;
 }
 
+.selectedImg {
+  border-radius: .5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.projects__urls {
+  margin-top: 1rem;
+}
 
 .projects__img {
   @for $i from 1 through 90 {

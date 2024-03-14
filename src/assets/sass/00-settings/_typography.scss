@@ -35,6 +35,12 @@ $bold: 'NunitoBold', sans-serif;
     width: 55ch;
    
   }
+  &--l {
+    font-size: 1.5rem;
+    font-family: $regular;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
   &--xl{
     font-size: 2rem;
     font-weight: bold;

@@ -44,12 +44,8 @@
       ],
       "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png"
+        "/assets/img/twelf/marca.webp",
+        "/assets/img/twelf/web.webp"
       ]
     },
     {
@@ -90,12 +86,7 @@
       ],
       "src_cover": "/assets/img/book.png",
       "gallery": [
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png",
-        "/assets/img/book.png"
+        "/assets/img/plships/marca.webp"
       ]
     }
   ]

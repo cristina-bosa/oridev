@@ -57,7 +57,7 @@ export default defineComponent({
     const router = useRouter()
     const projects = DataProjects.projects
     const playSound = () =>{
-      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      const audio = new Audio('/assets/sounds/menu-open.mp3')
       audio.play()
     }
     const singleProject = (projectId) =>{

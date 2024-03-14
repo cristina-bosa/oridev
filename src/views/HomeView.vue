@@ -136,7 +136,7 @@ export default defineComponent({
     const projects = DataProjects.projects
     const experiences = DataExperience.experience
     const playSound = () => {
-      const audio = new Audio('/assets/sounds/switch-on.mp3')
+      const audio = new Audio('/assets/sounds/menu-open.mp3')
       audio.play()
     }
     const singleProject = (projectId) => {
@@ -147,6 +147,7 @@ export default defineComponent({
       projects,
       experiences,
       playSound,
+
       singleProject
     }
   }
