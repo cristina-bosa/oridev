@@ -3,7 +3,7 @@
     <section class="container__presentation">
       <article>
         <h1 class="text--xxl text--20">
-          Hola. Soy Cristina. Diseñadora UX/UI y Desarrolladora Front-end.
+          Hola. Soy Cristina. Desarrolladora Front-end y Diseñadora UX/UI.
         </h1>
         <p class="text--m text--55">Apasionada de crear experiencias de usuarios únicas, accesibles y centradas en el
           usuario con una experiencia

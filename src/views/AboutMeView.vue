@@ -3,7 +3,7 @@
     <section class="container__presentation">
       <article>
         <h1 class="text--xxl text--20">
-          Hola. Soy Cristina. Diseñadora UX/UI y Desarrolladora Front-end.
+          Hola. Soy Cristina. Desarrolladora Front-end y Diseñadora UX/UI.
         </h1>
         <p class="text--m text--55">
           Apasionada de crear experiencias de usuarios únicas, accesibles y
@@ -68,7 +68,7 @@
               <ul>           
                 <li>React</li>
                 <li>Python</li>
-                <li>Node</li>
+                
                 
               </ul>
             </div>
@@ -77,15 +77,15 @@
         </article>
         <article class="about-me__presentation--right">
           <p>En cada proyecto, mi objetivo es dejar una huella personal y ofrecer resultados excepcionales que superen las expectativas. Estoy comprometida a convertir mi pasión en un motor para el éxito, no solo para mi, sino también para aquellos con quienes colaboro.</p>
-          <a href="/path.svg" download="CV - Cristina Bosa" class="btn btn--primary">Descargar CV
+          <a href="/assets/cv/CV_CristinaBosa_develop_design.pdf" download="CV - Cristina Bosa" class="btn btn--primary">Descargar CV
             <svg class="btn__svg__splend" width="49" height="42" viewBox="0 0 49 42" fill="none"
             xmlns="http://www.w3.org/2000/svg">
-            <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-            <path d="M1.75977 15.9925L32.0297 7.94684" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-            <path d="M30.9849 40.9303L41.2725 14.2426" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-            <path d="M24.5903 21.7182L35.3392 12.0537" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-            <path d="M46.4839 25.4132L47.5097 16.4412" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-          </svg>
+              <path d="M19.1729 3.22217L31.1014 1.91441" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+              <path d="M1.75977 15.9925L32.0297 7.94684" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+              <path d="M30.9849 40.9303L41.2725 14.2426" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+              <path d="M24.5903 21.7182L35.3392 12.0537" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+              <path d="M46.4839 25.4132L47.5097 16.4412" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+            </svg>
           </a>
           
         </article>
