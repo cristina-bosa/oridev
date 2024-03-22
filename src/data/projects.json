@@ -88,6 +88,46 @@
       "gallery": [
         "/assets/img/plships/marca.webp"
       ]
+    },
+    {
+      "id": 5,
+      "name": "Books for all",
+      "description": "Creación de una página web para la venta de libros, la página es bastante sencilla, posee pqueñas animaciones. Si quieres comprobar el apartado de 'descuento' tienes que escribir 'SAVE10'.",
+      "urls":[
+        {
+          "name": "Web",
+          "url": "https://oridevbooksforall.vercel.app"
+        }
+      ],
+      "tags": [
+        "Diseño UX/UI",
+        "Desarrollo"
+      ],
+      "src_cover": "/assets/img/book.png",
+      "gallery": [
+        "/assets/img/booksforall/web.webp",
+        "/assets/img/booksforall/web_2.webp"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Todo list",
+      "description": "Creación de una lista de tareas, la página es bastante sencilla y se ha creado con el objetivo de que sea lo más intuitiva posible.",
+      "urls":[
+        {
+          "name": "Web",
+          "url": "https://oridevtodo.vercel.app"
+        }
+      ],
+      "tags": [
+        "Diseño UX/UI",
+        "Desarrollo"
+      ],
+      "src_cover": "/assets/img/book.png",
+      "gallery": [
+        "/assets/img/todolist/web.webp",
+        "/assets/img/todolist/web_2.webp"
+      ]
     }
   ]
 }

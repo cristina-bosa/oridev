@@ -17,7 +17,7 @@
     <div :class="{ 'navbar__content--active': isMenuOpen }" class="navbar__content">
       <ul class="navbar__items">
         <li>
-          <router-link role="menuitem" to="/" @mouseenter="playSound">
+          <router-link role="menuitem" to="/">
             Oridev
             <svg class="navbar__svg" width="60" height="10" viewBox="0 0 81 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@
 
         </li>
         <li>
-          <router-link role="menuitem" to="/about" @mouseenter="playSound">
+          <router-link role="menuitem" to="/about">
             Sobre mí
             <svg class="navbar__svg" width="60" height="10" viewBox="0 0 81 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +40,7 @@
           </router-link>
         </li>
         <li>
-          <router-link role="menuitem" to="/projects" @mouseenter="playSound">
+          <router-link role="menuitem" to="/projects">
             Proyectos
             <svg class="navbar__svg" width="60" height="10" viewBox="0 0 81 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
         </li>
         <li>
 
-          <a href="/#contact" @mouseenter="playSound">
+          <a href="/#contact">
             Contacto
             <svg class="navbar__svg" width="60" height="10" viewBox="0 0 81 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
@@ -77,13 +77,8 @@ export default defineComponent({
     const toggleMenu = () => {
       isMenuOpen.value = !isMenuOpen.value
     }
-    const playSound = () => {
-      const audio = new Audio('/assets/sounds/board.mp3')
-      audio.play()
-    }
     return {
       isMenuOpen,
-      playSound,
       toggleMenu
     }
   }
