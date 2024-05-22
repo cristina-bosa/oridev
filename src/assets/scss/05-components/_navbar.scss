@@ -1,0 +1,41 @@
+@use "../00-settings/variables";
+@use "../01-tools/mixins" as mix;
+@use "../01-tools/querys" as querys;
+
+.navbar {
+  position: sticky;
+  z-index: 2;
+  padding: .5em;
+  border-bottom: .02em solid variables.$primary-color;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__brand{
+    font-size: 1.5em;
+    font-family: variables.$bold;
+    color: variables.$text-color;    
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: variables.$text-color;
+    &:hover{
+      color: variables.$secondary-color;
+    }
+  }
+}

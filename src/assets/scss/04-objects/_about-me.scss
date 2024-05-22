@@ -1,0 +1,62 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as m;
+@use '../01-tools/querys' as q;
+.about-me {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5em;
+  @include m.lg;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  @include q.mobile{
+    flex-direction: column;
+    margin: 1em;
+  }
+  &__image {    
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include q.mobile{
+      display: none;
+    
+    }
+    img{      
+      border-radius: 1em;
+    }
+    &--svg{
+      position: absolute;            
+      
+      path{
+        stroke-dasharray: 3000;
+        stroke-dashoffset: 3000;        
+        animation: draw 3.5s forwards;
+        mix-blend-mode: darken;
+      }
+      @include q.mobile{
+        display: none;
+      
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 1;
+  }
+  &--title{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: variables.$text-color-primary;
+  }
+}
+
+@keyframes draw {
+  to{
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,141 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as m;
+@use '../01-tools/querys' as q;
+.projects {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  @include m.lg;
+  @include q.mobile{
+    margin: 1em;
+  }
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 2em;
+  }
+
+  &--title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: variables.$text-color-primary;
+  }
+
+  &--description {
+    color: variables.$text-gray;
+    max-width: 50ch;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+ 
+  }
+
+  &__card--primary {
+    background-color: variables.$secondary-color-light;
+    border-radius: 1em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 350px;
+    height: 350px;
+    gap: 1em;
+
+    .projects__card--title {
+      font-size: 1.25em;
+      font-weight: bold;
+      color: variables.$text-color-primary;
+    }
+
+    .projects__card--tag {
+      color: variables.$text-color-primary;
+      border-radius: 1em;
+      padding: .5em 1em;
+      max-width: fit-content;
+      border: 0.125em solid variables.$primary-color;
+    }
+
+    .projects__card__footer {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__card--secondary {
+    background-color: variables.$primary-color;
+    border-radius: 1em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 350px;
+    height: 350px;
+    gap: 1em;
+
+    .projects__card--title {
+      font-size: 1.25em;
+      font-weight: bold;
+      color: variables.$text-color-secondary;
+    }
+
+    .projects__card--tag {
+      color: variables.$text-color-secondary;
+      border-radius: 1em;
+      padding: .5em 1em;
+      max-width: fit-content;
+      border: 0.125em solid variables.$secondary-color;
+    }
+
+    .projects__card__footer {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.carousel__container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel__track {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+  width: max-content;
+  height: 400px;
+  cursor: pointer;
+  animation: slide 15s linear infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

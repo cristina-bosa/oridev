@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'SatoshiBold';
+  src: url('/fonts/Satoshi-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SatoshiRegular';
+  src: url('/fonts/Satoshi-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$regular: 'SatoshiRegular', sans-serif;
+$bold: 'SatoshiBold', sans-serif;
+
+.text-bold{
+  font-family: $bold;
+}
+
+.text{
+  &--bold{
+    font-family: $bold;
+  }
+  &--regular{
+    font-family: $regular;
+  }
+  &--xl{
+    font-size: 5em;
+  }
+  &--lg{
+    font-size: 1.5em;
+  }
+  &--md{
+    font-size: 1.2em;
+  }
+  &--sm{
+    font-size: .8em;
+  }
+}

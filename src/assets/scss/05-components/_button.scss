@@ -1,0 +1,115 @@
+@use '../00-settings/variables';
+
+.btn {
+  display: flex;
+  justify-content: center;
+  gap: .5em;
+  align-items: center;
+  padding: .5em 1em;
+  border-radius: 2em;
+  background-color: transparent;
+  border: 0.125em solid variables.$primary-color;
+  color: variables.$text-color-primary;
+  cursor: pointer;
+  max-width: fit-content;
+
+  &--primary {
+    background-color: transparent;
+    color: variables.$text-color-primary;
+
+    &:hover {
+      background-color: variables.$primary-color;
+      color: variables.$text-light;
+      animation: movebackground .5s linear;
+      background: linear-gradient(90deg, variables.$primary-color 50%, transparent 50%);
+      background-size: 200% 100%;
+
+      #arrow {
+        path {
+          stroke: variables.$text-light;
+        }
+        #linea {
+          stroke-dasharray: 100;
+          stroke-dashoffset: 100;
+          animation: animate-arrow 4s infinite;
+        }
+        #flecha {
+          animation: animate-arrow 4s infinite;
+        }
+      }
+
+    }
+  }
+  &--fill--primary{
+    background-color: variables.$primary-color;
+    color: variables.$text-light;
+    &:hover {
+      background-color: variables.$primary-color;
+      color: variables.$text-light;
+      animation: movebackground .5s linear;
+      background: linear-gradient(90deg, variables.$primary-color 50%, transparent 50%);
+      background-size: 200% 100%;
+
+      #arrow {
+        path {
+          stroke: variables.$text-light;
+        }
+        #linea {
+          stroke-dasharray: 100;
+          stroke-dashoffset: 100;
+          animation: animate-arrow 4s infinite;
+        }
+        #flecha {
+          animation: animate-arrow 4s infinite;
+        }
+      }
+
+    }
+  
+  }
+  &--fill--secondary{
+    background-color: variables.$secondary-color;
+    color: variables.$text-light;
+    &:hover {
+      background-color: variables.$secondary-color;
+      color: variables.$text-light;
+      animation: movebackground .5s linear;
+      background: linear-gradient(90deg, variables.$secondary-color 50%, transparent 50%);
+      background-size: 200% 100%;
+
+      #arrow {
+        path {
+          stroke: variables.$text-light;
+        }
+        #linea {
+          stroke-dasharray: 100;
+          stroke-dashoffset: 100;
+          animation: animate-arrow 4s infinite;
+        }
+        #flecha {
+          animation: animate-arrow 4s infinite;
+        }
+      }
+
+    }
+  
+  }
+
+}
+
+
+@keyframes animate-arrow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes movebackground {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
+}

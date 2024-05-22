@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "title": "Triggers",
+    "type": "Professional"
+  },
+  {
+    "id": 2,
+    "title": "Twelf Solutions",
+    "type": "Professional"
+  },
+  {
+    "id": 3,
+    "title": "Books",
+    "type": "Academic"
+  },
+  {
+    "id": 4,
+    "title": "TFM",
+    "type": "Academic"
+  },
+  {
+    "id": 6,
+    "title": "Joafia",
+    "type": "Professional"
+  }
+
+]

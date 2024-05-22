@@ -1,0 +1,11 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as m;
+@use '../01-tools/querys' as q;
+.experience{
+  @include m.lg;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  @include q.mobile{    
+    margin: 1em;
+  }
+}

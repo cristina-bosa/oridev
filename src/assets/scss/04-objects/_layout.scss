@@ -1,0 +1,9 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as mix;
+@use '../01-tools/querys' as querys;
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+

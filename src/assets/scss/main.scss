@@ -1,0 +1,25 @@
+@use '00-settings/colors';
+@use '00-settings/typography';
+
+@use '01-tools/mixins';
+
+@use '02-generic/normalize';
+
+@use '03-elements/boxsizing';
+@use '03-elements/ui-ahref';
+
+@use '04-objects/layout';
+@use '04-objects/about-me';
+@use '04-objects/projects';
+@use '04-objects/experience';
+@use '04-objects/scrollbar';
+
+@use '05-components/navbar';
+@use '05-components/button';
+
+@use '06-utilities/utilities';
+
+*, *::after, *::before{
+  font-family: typography.$regular;
+  font-size: 18px;
+}

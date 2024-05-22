@@ -1,0 +1,6 @@
+@use '../00-settings/variables' as variables;
+
+@mixin lg{
+  margin: 0 auto;
+  max-width: 1200px;
+}

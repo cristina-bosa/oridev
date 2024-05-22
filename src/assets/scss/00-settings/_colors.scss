@@ -1,0 +1,29 @@
+$_seasalt: hsl(210, 12%, 97%); // --> background
+
+$_zaffre: hsl(232, 85%, 35%); // --> primary-color
+$_esmerald: hsl(145, 71%, 47%);
+
+$_night: hsl(0, 0%, 8%);
+
+$_anti_flash_white: hsl(210, 10%, 96%); //--> text-white
+$_silver: hsl(220, 2%, 66%); // --> text-gray
+
+$primary-color-darker: hsl(232, 85%, 10%);
+$primary-color-dark: hsl(232, 85%, 30%);
+$primary-color: hsl(232, 85%, 35%);
+$primary-color-light: hsl(232, 85%, 60%);
+$primary-color-lighter: hsl(232, 85%, 80%);
+
+$secondary-color-darker: hsl(145, 71%, 10%);
+$secondary-color-dark: hsl(145, 71%, 30%);
+$secondary-color: $_esmerald;
+$secondary-color-light: hsl(145, 71%, 60%);
+$secondary-color-lighter: hsl(145, 71%, 80%);
+
+$background-color: $_seasalt;
+
+$text-color-primary: $_zaffre;
+$text-color-secondary: $_esmerald;
+$text-color: $_night;
+$text-light: $_anti_flash_white;
+$text-gray: $_silver;

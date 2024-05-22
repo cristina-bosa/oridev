@@ -1,0 +1,17 @@
+@use '../00-settings/variables';
+
+html::-webkit-scrollbar {
+  width: 2.5em;
+}
+
+html::-webkit-scrollbar-track {
+  border-radius: 1em;
+  background-color: white;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 99px;
+  border: .9em solid white;
+  background-color: variables.$primary-color;
+  background-clip: padding-box;
+}

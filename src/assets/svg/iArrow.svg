@@ -1,0 +1,6 @@
+<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="arrow">
+<path id="flecha" d="M17.5723 16.1647L22.3487 11.3882L17.5723 6.61182" stroke="#0D21A1" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="linea" d="M1.65088 1.83533L1.65088 5.01961C1.65088 6.70867 2.32185 8.32853 3.51619 9.52288C4.71053 10.7172 6.33039 11.3882 8.01945 11.3882L22.3487 11.3882" stroke="#0D21A1" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
