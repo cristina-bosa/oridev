@@ -1,15 +1,19 @@
 import HeaderComponent from "../components/HeaderComponent"
 import me from "../assets/images/me.png"
 import Data from '../mock/projects.json'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
+import 'react-alice-carousel/lib/alice-carousel.css';
 const HomePage = () => {
+  AOS.init()
   const projects = Data;
 
   return (
     <>
       <HeaderComponent />
       <main className="">
-        <section className="about-me">
+        <section data-aos="fade-up" className="about-me">
           <section className="about-me__image">
             <img src={me} alt="Brand design" />
             <svg className="about-me__image--svg" width="500" height="358" viewBox="0 0 500 358" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,42 +34,47 @@ const HomePage = () => {
             </button>
           </section>
         </section>
-        <section className="projects">
+        <section data-aos="fade-down" className="projects">
           <section className="projects__information">
             <h3 className="projects--title">Proyectos</h3>
             <p className="projects--description">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan.</p>
           </section>
         </section>
         <section className="projects__container">
-          <div className="carousel__container">
-            <div className="carousel__track">
-              {projects && projects.map((project) => {
-                return (
-                  <article className={project.type === "Academic" ? 'projects__card--primary' : 'projects__card--secondary'} >
-                    <h4 className="projects__card--title">{project.title}</h4>
-                    <div className="projects__card__footer">
-                      <p className="projects__card--tag">{project.type}</p>
-                      <button className={project.type === 'Academic' ? 'btn btn--fill--primary' : 'btn btn--fill--secondary'}>
-                        <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g id="arrow">
-                            <path id="flecha" d="M17.5723 16.1647L22.3487 11.3882L17.5723 6.61182" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                            <path id="linea" d="M1.65088 1.83533L1.65088 5.01961C1.65088 6.70867 2.32185 8.32853 3.51619 9.52288C4.71053 10.7172 6.33039 11.3882 8.01945 11.3882L22.3487 11.3882" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                          </g>
-                        </svg>
-                      </button>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
-          </div>
+
+          {projects && projects.map((project) => {
+            return (
+              <section data-aos="fade-right"
+                data-aos-offset={project.time}
+                data-aos-easing="ease-in-sine" className={project.type === "Academic" ? 'projects__card--primary' : 'projects__card--secondary'} >
+                <h4 className="projects__card--title">{project.title}</h4>
+                <div className="projects__card__footer">
+                  <p className="projects__card--tag">{project.type}</p>
+                  <button onClick={() => console.log('feo')} className={project.type === 'Academic' ? 'btn btn--fill--primary' : 'btn btn--fill--secondary'}>
+                    <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g id="arrow">
+                        <path id="flecha" d="M17.5723 16.1647L22.3487 11.3882L17.5723 6.61182" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
+                        <path id="linea" d="M1.65088 1.83533L1.65088 5.01961C1.65088 6.70867 2.32185 8.32853 3.51619 9.52288C4.71053 10.7172 6.33039 11.3882 8.01945 11.3882L22.3487 11.3882" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
+                      </g>
+                    </svg>
+                  </button>
+                </div>
+              </section>
+            )
+          })}
         </section>
         <section className="experience">
-          <h3 className="projects--title">Experiencia</h3>
-          <p className="projects--description">Descubre mi trayectoria profesional, donde he tenido la oportunidad de poder crecer en ambos sectores; diseño y desarrollo.</p>
-
+          <section className="experience__information">
+            <h3 className="experience--title">Experiencia</h3>
+            <p className="experience--description">Descubre mi trayectoria profesional, donde he tenido la oportunidad de poder crecer en ambos sectores; diseño y desarrollo.</p>
+          </section>
+          <section className="experience__container">
+            <h2>2024 - Actualmente</h2>
+            <h3>Front-end Developer</h3>
+            <p>En esta empresa me encargo de desarrollar y mantener aplicaciones web con tecnologías como React, Angular y Vue.</p>
+          </section>
         </section>
-      </main>
+      </main >
 
     </>
   )

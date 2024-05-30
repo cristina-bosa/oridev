@@ -1,15 +1,18 @@
 @use '../00-settings/variables';
 @use '../01-tools/mixins' as m;
 @use '../01-tools/querys' as q;
+
 .projects {
   display: flex;
   flex-direction: column;
   margin-top: 4em;
   margin-bottom: 2em;
   @include m.lg;
-  @include q.mobile{
+
+  @include q.mobile {
     margin: 1em;
   }
+
   &__information {
     display: flex;
     flex-direction: column;
@@ -29,21 +32,20 @@
   }
 
   &__container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));    
     gap: 1.5em;
- 
+    @include m.lg
   }
 
   &__card--primary {
     background-color: variables.$secondary-color-light;
     border-radius: 1em;
     padding: 2em;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
+    height: 230px;
     justify-content: flex-end;
-    width: 350px;
-    height: 350px;
     gap: 1em;
 
     .projects__card--title {
@@ -66,21 +68,16 @@
       align-items: center;
       justify-content: space-between;
     }
-
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 
   &__card--secondary {
     background-color: variables.$primary-color;
     border-radius: 1em;
     padding: 2em;
-    display: flex;
+    display: flex !important;
+    height: 230px;
     flex-direction: column;
     justify-content: flex-end;
-    width: 350px;
-    height: 350px;
     gap: 1em;
 
     .projects__card--title {
@@ -104,38 +101,10 @@
       justify-content: space-between;
     }
 
-    &:hover {
-      transform: scale(1.05);
-    }
   }
 }
 
-.carousel__container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.carousel__track {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5em;
-  width: max-content;
-  height: 400px;
-  cursor: pointer;
-  animation: slide 15s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes slide {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.slick-initialized .slick-slide {
+  margin-left: 1em;
+  margin-right: 1em;
 }
