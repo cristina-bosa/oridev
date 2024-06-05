@@ -12,14 +12,29 @@
 @use '04-objects/about-me';
 @use '04-objects/projects';
 @use '04-objects/experience';
-@use '04-objects/scrollbar';
+
+@use '04-objects/skills';
+@use '04-objects/education';
 
 @use '05-components/navbar';
 @use '05-components/button';
 
 @use '06-utilities/utilities';
 
-*, *::after, *::before{
+*,
+*::after,
+*::before {
   font-family: typography.$regular;
   font-size: 18px;
+}
+
+body {
+  background-color: colors.$background-color;
+
+  &::before {
+    opacity: 0.8;
+  }
+
+  background-image: radial-gradient(colors.$primary-color 0.5px, transparent 0.5px);
+  background-size: 10px 10px;
 }

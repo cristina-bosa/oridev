@@ -6,12 +6,12 @@ html::-webkit-scrollbar {
 
 html::-webkit-scrollbar-track {
   border-radius: 1em;
-  background-color: white;
+  background-color: transparent;
 }
 
 html::-webkit-scrollbar-thumb {
-  border-radius: 99px;
-  border: .9em solid white;
+  border-radius: 1.5em;
+  border: .9em solid transparent;
   background-color: variables.$primary-color;
   background-clip: padding-box;
 }

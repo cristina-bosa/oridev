@@ -1,0 +1,74 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as m;
+@use '../01-tools/querys' as q;
+
+.skills {
+  @include m.lg;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
+  @include q.mobile {      
+    flex-direction: column;
+  }
+  &--title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: variables.$text-color-primary;
+  }
+
+  &__information {
+    flex: 1;
+  }
+
+  &__container {
+    flex: 5;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1em;
+    @include q.mobile {      
+     display: flex;
+      flex-direction: column;
+    }   
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1.5em;
+    padding: 1.5em;
+    border-radius: 1em;
+
+    &--title {
+      font-size: 1em;
+      font-family: variables.$bold;
+      color: variables.$text-color;
+    }
+
+    &--list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1em;
+      @include q.mobile {      
+        display: flex;
+        flex-wrap: wrap;
+
+      }
+    }
+    &--skills {
+      margin-top: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f3f3f3;
+      border-radius: 1em;
+      padding: 1em;      
+      &:hover {
+        cursor: pointer;
+        background-color: darken(#f3f3f3, 5%);
+        color: variables.$text-light;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use '../00-settings/variables';
+@use '../01-tools/mixins' as m;
+@use '../01-tools/querys' as q;
+
+.education{
+  @include m.lg;
+  margin-top: 4em;
+  margin-bottom: 2em;
+
+  &--title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: variables.$text-color-primary;
+  }
+  &__container{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+  }
+  &__card{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1.5em;
+    padding: 1.5em;
+    @include q.mobile {      
+      display: flex;
+       flex-direction: row;
+     }  
+    &--years{
+      font-size: 1em;
+      font-family: variables.$bold;
+      color: variables.$text-color-primary;
+    }
+    &--title{
+      font-size: 1em;
+      font-family: variables.$bold;
+      color: variables.$text-color;
+    }
+    &--description{
+      color: variables.$text-gray;
+    }
+    &--active{
+      &::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 0.313em;
+        height: 80%;
+        background-color: variables.$secondary-color;
+        border-radius: 1rem;
+      }      
+    }    
+  }
+}

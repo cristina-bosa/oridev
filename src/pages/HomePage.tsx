@@ -1,78 +1,106 @@
 import HeaderComponent from "../components/HeaderComponent"
-import me from "../assets/images/me.png"
-import Data from '../mock/projects.json'
+import DataProjects from '../mock/projects.json'
+import DataExperience from '../mock/experience.json'
+import DataSkills from '../mock/skills.json'
+import me from '../assets/images/me.webp'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-
-import 'react-alice-carousel/lib/alice-carousel.css';
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from "react-tooltip"
 const HomePage = () => {
   AOS.init()
-  const projects = Data;
+  const projects = DataProjects
+  const skills = DataSkills
+  const experience = DataExperience
 
   return (
     <>
       <HeaderComponent />
-      <main className="">
+      <main>
         <section data-aos="fade-up" className="about-me">
-          <section className="about-me__image">
-            <img src={me} alt="Brand design" />
-            <svg className="about-me__image--svg" width="500" height="358" viewBox="0 0 500 358" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M148.527 42.2078C159.858 30.9247 171.206 20.4627 184.154 11.0072C187.381 8.65089 196.303 1.40449 194.513 4.96842C181.932 30.0256 165.236 54.0758 150.801 77.9375C98.5158 164.37 48.8638 253.026 6.77937 344.904C5.76032 347.128 4 349.252 4 351.697C4 357.775 9.62656 340.907 12.5908 335.594C28.6403 306.825 47.4944 281.016 69.4416 256.334C126.417 192.259 196.124 142.353 255.912 81.4601C286.599 50.2071 192.51 142.065 163.435 174.81C147.181 193.116 131.537 211.864 116.186 230.921C112.867 235.04 102.671 246.218 107.595 244.257C122.198 238.44 137.746 225.395 150.549 217.333C190.551 192.146 231.193 168.011 271.83 143.861C281.67 138.014 422.816 44.6256 427.475 48.7498C429.708 50.7262 423.673 53.3423 421.664 55.5435C409.799 68.5404 397.544 81.1787 385.532 94.041C358.343 123.155 331.083 152.235 304.172 181.604C296.398 190.088 194.3 298.408 209.168 311.438C219.621 320.599 376.361 190.022 390.585 179.591C425.096 154.286 520.442 68.3923 490.138 98.5701C464.453 124.148 441.254 152.244 414.842 177.075C384.364 205.728 351.05 231.088 320.848 260.108C313.044 267.608 311.641 269.764 303.162 264.134" stroke="#23CE6B" stroke-width="8" stroke-linecap="round" />
-            </svg>
-
-          </section>
           <section className="about-me__content">
-            <h1 className="about-me--title">Hola, soy Cristina</h1>
-            <h2 className="about-me--title">Desarrolladora front-end y UI/UX designer.</h2>
-            <button className="btn btn--primary">Conóceme
-              <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="arrow">
-                  <path id="flecha" d="M17.5723 16.1647L22.3487 11.3882L17.5723 6.61182" stroke="#0D21A1" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                  <path id="linea" d="M1.65088 1.83533L1.65088 5.01961C1.65088 6.70867 2.32185 8.32853 3.51619 9.52288C4.71053 10.7172 6.33039 11.3882 8.01945 11.3882L22.3487 11.3882" stroke="#0D21A1" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                </g>
-              </svg>
-            </button>
+            <span className="about-me--suppertitle">Encantada de conocerte,</span>
+            <h1 className="about-me--title">Soy Cristina. Front-end developer y UX/UI designer</h1>
           </section>
         </section>
+
         <section data-aos="fade-down" className="projects">
           <section className="projects__information">
-            <h3 className="projects--title">Proyectos</h3>
+            <h2 className="projects--title">Proyectos</h2>
             <p className="projects--description">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan.</p>
           </section>
+          <section className="projects__container">
+            {projects && projects.map((project) => {
+              return (
+                <section data-aos="fade-right"
+                  key={project.id}
+                  data-aos-easing="ease-in-sine"
+                  className="projects__card">
+                  <section className="projects__card__header">
+                    <h4 className="projects__card--title">{project.title}</h4>
+                    <p className="projects__card--tag">{project.type}</p>
+                  </section>
+                  <section className="projects__card__footer">
+                    <p>Ver Proyecto</p>
+                  </section>
+                </section>
+              )
+            })}
+          </section>
         </section>
-        <section className="projects__container">
+        <section data-aos="fade-down" className="skills">
+          <section className="skills__information">
+            <h2 className="skills--title">Skills</h2>
+          </section>
+          <section className="skills__container">
+            {
+              skills && skills.map((skill) => {
+                return (
+                  <section data-aos="fade-down" className={skill.develop == true ? 'skills__card skills__card--develop' : 'skills__card skills__card--design'}>
+                    <section className="skills__card__content">
+                      <h3 className="skills__card--title">{skill.title}</h3>
+                      <section className="skills__card--list">
+                        {
+                          skill.skill.map((item) => {
+                            return (
+                              <>
+                                <span className="skills__card--skills" data-tooltip-id="my-tooltip" data-tooltip-content={item.name}>
+                                  <img src={item.img} alt={item.name} />
+                                </span>
+                              </>
+                            )
+                          })
+                        }
+                      </section>
+                      <Tooltip id="my-tooltip" />
 
-          {projects && projects.map((project) => {
-            return (
-              <section data-aos="fade-right"
-                data-aos-offset={project.time}
-                data-aos-easing="ease-in-sine" className={project.type === "Academic" ? 'projects__card--primary' : 'projects__card--secondary'} >
-                <h4 className="projects__card--title">{project.title}</h4>
-                <div className="projects__card__footer">
-                  <p className="projects__card--tag">{project.type}</p>
-                  <button onClick={() => console.log('feo')} className={project.type === 'Academic' ? 'btn btn--fill--primary' : 'btn btn--fill--secondary'}>
-                    <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g id="arrow">
-                        <path id="flecha" d="M17.5723 16.1647L22.3487 11.3882L17.5723 6.61182" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                        <path id="linea" d="M1.65088 1.83533L1.65088 5.01961C1.65088 6.70867 2.32185 8.32853 3.51619 9.52288C4.71053 10.7172 6.33039 11.3882 8.01945 11.3882L22.3487 11.3882" stroke="#fff" stroke-width="1.71" stroke-linecap="round" stroke-linejoin="round" />
-                      </g>
-                    </svg>
-                  </button>
-                </div>
-              </section>
-            )
-          })}
+                    </section>
+                  </section>
+                )
+              })
+            }
+          </section>
         </section>
         <section className="experience">
           <section className="experience__information">
-            <h3 className="experience--title">Experiencia</h3>
-            <p className="experience--description">Descubre mi trayectoria profesional, donde he tenido la oportunidad de poder crecer en ambos sectores; diseño y desarrollo.</p>
+            <h2 className="experience--title">Experiencia</h2>
           </section>
           <section className="experience__container">
-            <h2>2024 - Actualmente</h2>
-            <h3>Front-end Developer</h3>
-            <p>En esta empresa me encargo de desarrollar y mantener aplicaciones web con tecnologías como React, Angular y Vue.</p>
+            {experience && experience.map((experience) => {
+              return (
+                <section data-aos="fade-right"
+                  data-aos-easing="ease-in-sine"
+                  className='experience__card'>
+                  <h3 className="experience__card--year">{experience.years}</h3>
+                  <h5 className="experience__card--jobtitle">{experience.title}</h5>
+                  <p className="experience__card--company">{experience.company}</p>
+                </section>
+
+              )
+            })
+            }
           </section>
+          <img src={me} data-aos="fade-down" alt="img-footer" className="img-footer" />
         </section>
       </main >
 

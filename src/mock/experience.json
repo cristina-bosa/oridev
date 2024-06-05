@@ -1,0 +1,89 @@
+[
+  {
+    "title": "UX/UI Designer & Front-end Developer",
+    "company": "Emprende soluciones y servicios 33, SL",
+    "years": "2024 - Actualmente",
+    "tags": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Figma",
+      "Affinity 2"
+    ],
+    "actual": true,
+    "description": [
+      "Diseño UX/UI para aplicaciones web y móviles",
+      "Programación mediante React Native + Expo + TypeScrit",
+      "Figma",
+      "Prototipado de baja y alta fidelidad"
+    ]
+  },
+  {
+    "title": "UX/UI Designer & Front-end Developer",
+    "company": "Freelance",
+    "years": "2023 - Actualmente",
+    "tags": [
+      "HTML",
+      "CSS3/SASS",
+      "JavaScript",
+      "TypeScript",
+      "Ionic",
+      "Vue",
+      "Figma",
+      "Adobe Creative Suite",
+      "Affinity 2"
+    ],
+    "actual": true,
+    "description": [
+      "Diseño UX/UI para aplicaciones web y móviles",
+      "Diseño y desarrollo de marca",
+      "Cartelería",
+      "Programación mediante HTML, CSS3/SASS, JavaScript/Typescript, Vue, NodeJS"
+    ]
+  },
+  {
+    "title": "Diseñadora gráfica",
+    "company": "Asistencia Integral Tributaria",
+    "years": "2021 - 2023",
+    "tags": [
+      "Figma",
+      "Adobe Illustrator",
+      "Adobe Photoshop",
+      "Adobe InDesign",
+      "Adobe Premiere",
+      "Adobe Effects"
+    ],
+    "actual": false,
+    "description": [
+      "Desarollo de manual de marca",
+      "Creación de aplicaciones offline y online",
+      "Wireframe de baja y alta fidelidad",
+      "Cartelería interna",
+      "Prototipado con Figma",
+      "Arquitectura de información para conseguir una buena usabilidad, accesibilidad y experiencia de usuario."
+    ]
+  },
+  {
+    "title": "Desarrolladora web",
+    "company": "Digital Art & Designer",
+    "years": "2018 - 2021",
+    "tags": [
+      "HTML",
+      "CSS3",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "WordPress",
+      "Laravel",
+      "Vue"
+    ],
+    "actual": false,
+    "description": [
+      "Participación en el ciclo de vida del proyecto, desde los inicios hasta la puesta en producción",
+      "Configurar y gestionar el CMS Wordpress bajo los requerimientos del proyecto (implementación y configuración de plugins, así como la gestión de plantillas necesarias).",
+      "Configurar y gestionar plataformas e-commerce según los requerimientos del proyecto.",
+      "Participación puntual en picos de desarrollo mediante el framework de Laravel con Vue.",
+      "Lanzamientos de pequeñas landings creadas mediante HTML, CSS3 y JavaScript."
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "develop": true,
+    "title": "Desarrollo",
+    "skill": [
+      {
+        "name": "Vue",
+        "img": "/assets/svg/vue.svg"
+      },
+      {
+        "name": "React",
+        "img": "/assets/svg/react.svg"
+      },
+      {
+        "name": "React Native",
+        "img": "/assets/svg/react.svg"
+      },
+      {
+        "name": "Expo",
+        "img": "/assets/svg/expo.svg"
+      },
+      {
+        "name": "HTML",
+        "img": "/assets/svg/html.svg"
+      },
+      {
+        "name": "CSS",
+        "img": "/assets/svg/css3.svg"
+      },
+      {
+        "name": "SASS",
+        "img": "/assets/svg/sass.svg"
+      },
+      {
+        "name": "JavaScript",
+        "img": "/assets/svg/js.svg"
+      },
+      {
+        "name": "TypeScript",
+        "img": "/assets/svg/ts.svg"
+      },
+      {
+        "name": "Node",
+        "img": "/assets/svg/nodejs.svg"
+      },
+      {
+        "name": "Python",
+        "img": "/assets/svg/py.svg"
+      },
+      {
+        "name": "Django",
+        "img": "/assets/svg/django.svg"
+      },
+      {
+        "name": "MongoDB",
+        "img": "/assets/svg/mongodb.svg"
+      },
+      {
+        "name": "MariaDB",
+        "img": "/assets/svg/mariadb.svg"
+      },
+      {
+        "name": "PostgreSQL",
+        "img": "/assets/svg/postgresql.svg"
+      }
+    ]
+  },
+  {
+    "develop": false,
+    "title": "Diseño",
+    "skill": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      },
+      {
+        "name": "Adobe InDesign",
+        "img": "/assets/svg/indesign.svg"
+      },
+      {
+        "name": "Adobe Illustrator",
+        "img": "/assets/svg/illustrator.svg"
+      },
+      {
+        "name": "Adobe Photoshop",
+        "img": "/assets/svg/photoshop.svg"
+      },
+      {
+        "name": "Affinity Designer",
+        "img": "/assets/svg/designer.svg"
+      },
+      {
+        "name": "Affinity Publisher",
+        "img": "/assets/svg/publisher.svg"
+      },
+      {
+        "name": "Affinity Photo",
+        "img": "/assets/svg/photo.svg"
+      }
+    ]
+  }
+]

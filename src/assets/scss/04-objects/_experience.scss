@@ -1,12 +1,20 @@
 @use '../00-settings/variables';
 @use '../01-tools/mixins' as m;
 @use '../01-tools/querys' as q;
-.experience{
+
+.experience {
   @include m.lg;
   margin-top: 4em;
   margin-bottom: 2em;
+  display: flex;
+  flex-direction: row;
 
-  @include q.mobile{    
+  @include q.mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include q.mobile {
     margin: 1em;
   }
 
@@ -15,20 +23,70 @@
     flex-direction: column;
     gap: 1em;
     margin-bottom: 2em;
+    flex: 1;
   }
 
   &--title {
     font-size: 1.5em;
-    font-weight: bold;
+    font-weight: variables.$bold;
     color: variables.$text-color-primary;
   }
 
-  &--description {
-    color: variables.$text-gray;
-    max-width: 50ch;
+  position: relative;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 5;
+    margin-top: 2em;
+    margin-bottom: 2em;
   }
-  &__container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  &__card {
+
+    display: flex;
+    gap: 4em;
+    padding: 1.5em;
+    border-bottom: 1px solid variables.$text-gray;
+
+    @include q.mobile {
+      display: flex;
+      gap: 1em;
+      flex-direction: column;
+    }
+
+    &--year {
+      font-size: 1em;
+      font-family: variables.$bold;
+      color: variables.$text-color;
+      max-width: 10em;
+      flex: 1;
+
+    }
+
+    &--jobtitle {
+      flex: 2;
+      font-size: 1em;
+      font-family: variables.$bold;
+    }
+
+    &--company {
+      flex: 3;
+      font-size: 1em;
+      color: variables.$text-gray;
+
+    }
   }
+}
+
+.img-footer {
+  height: 450px;
+  position: absolute;
+  bottom: -5em;
+  left: -5em;
+  @include q.mobile {      
+    bottom: -22em;   
+     
+   }  
 }

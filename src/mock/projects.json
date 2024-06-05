@@ -2,33 +2,28 @@
   {
     "id": 1,
     "title": "Triggers",
-    "type": "Professional",
-    "time": 200
+    "type": "Professional"
   },
   {
     "id": 2,
     "title": "Twelf Solutions",
-    "type": "Professional",
-    "time": 300
+    "type": "Professional"
 
   },
   {
     "id": 3,
     "title": "Books",
-    "type": "Academic",
-    "time": 400
+    "type": "Academic"
   },
   {
     "id": 4,
     "title": "TFM",
-    "type": "Academic",
-    "time": 500
+    "type": "Academic"
   },
   {
     "id": 6,
     "title": "Joafia",
-    "type": "Professional",
-    "time": 600
+    "type": "Professional"
   }
 
 ]

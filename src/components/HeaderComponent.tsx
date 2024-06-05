@@ -9,7 +9,7 @@ const HeaderComponent = () => {
         <section>
           <ul className="navbar__menu">
             <li className="navbar__item"><a className="navbar__link" href="/">Proyectos</a></li>
-            <li className="navbar__item"><a className="navbar__link" href="/about">Sobre mí</a></li>
+            <li className="navbar__item"><a className="navbar__link" href="/about-me">Sobre mí</a></li>
             <li className="navbar__item"><a className="navbar__link" href="/contact">Contacto</a></li>
           </ul>
         </section>

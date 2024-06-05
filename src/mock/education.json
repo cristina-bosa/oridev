@@ -1,0 +1,18 @@
+[
+  {
+    "school": "Universidad Europea de Madrid",
+    "degree": "Máster en Desarrollo Web y Aplicaciones",
+    "years": "2023 - Actualmente",
+    "active": true
+  },
+  {
+    "school": "Universitat Oberta Catalunya",
+    "degree": "Grado de Diseño y Creación Digital",
+    "years": "2019 - 2023"
+  },
+  {
+    "school": "CIFP Villa de Agüimes",
+    "degree": "Ciclo Superior Desarrollo Aplicaciones Web (DAW)",
+    "years": "2017-2018"
+  }
+]
