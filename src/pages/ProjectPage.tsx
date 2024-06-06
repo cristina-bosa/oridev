@@ -28,7 +28,7 @@ const ProjectIndividual = () => {
               {
                 project?.urls.map((url, index) => {
                   return (
-                    <a key={index} className="project--url" href={url.url} target="_blank" rel="noreferrer"><IoLink />
+                    <a key={index} className="project--url" href={url.url} target="_blank" rel="noreferrer"><IoLink size={'1.2em'}/>
                       {url.name}</a>
                   )
                 })

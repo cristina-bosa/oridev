@@ -9,8 +9,9 @@ import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from "react-tooltip"
 import { useNavigate } from "react-router-dom"
 import { IoCopyOutline } from "react-icons/io5";
-import { IoCheckmark } from "react-icons/io5";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { IoLogoGithub } from "react-icons/io5";
+import { IoLogoLinkedin } from "react-icons/io5";
 
 
 import { useState } from "react"
@@ -53,14 +54,23 @@ const HomePage = () => {
               onClick={handleCopyText}>
               <div className="about-me__content__copy--info">
                 <p>{valueEmail}</p>
-                <IoCopyOutline
+                <IoCopyOutline                
                   onClick={handleCopyText}
                 />
               </div>
               {visible && <section className="about-me__content__copy--alert" >
-                <p><IoCheckmark />
+                <p>
                   {message}</p>
               </section>}
+            </section>
+            <section className="about-me__content__social">
+              <a href="https://github.com/cristina-bosa"
+                data-tooltip-id="my-tooltip" data-tooltip-content="Mi github" target="_blank" rel="noreferrer" className="about-me__content__social--item">
+                <IoLogoGithub size={'1.2em'} />
+              </a>
+              <a href="https://www.linkedin.com/in/cristina-bosa/" data-tooltip-id="my-tooltip" data-tooltip-content="Mi linkedin" target="_blank" rel="noreferrer" className="about-me__content__social--item">
+                <IoLogoLinkedin size={'1.2em'}/>
+              </a>
             </section>
           </section>
         </section>
@@ -84,7 +94,7 @@ const HomePage = () => {
                   </section>
                   <section className="projects__card__footer">
                     <p className="projects__card__footer--link">
-                      Ver proyecto<IoArrowForwardOutline /> </p>
+                      Ver proyecto<IoArrowForwardOutline size={'1.2em'}/> </p>
                   </section>
                 </section>
               )
