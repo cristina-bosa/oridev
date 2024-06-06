@@ -65,10 +65,10 @@ const HomePage = () => {
             </section>
             <section className="about-me__content__social">
               <a href="https://github.com/cristina-bosa"
-                data-tooltip-id="my-tooltip" data-tooltip-content="Mi github" target="_blank" rel="noreferrer" className="about-me__content__social--item">
+                data-tooltip-id="my-tooltip" data-tooltip-content="Github" target="_blank" rel="noreferrer" className="about-me__content__social--item">
                 <IoLogoGithub size={'1.2em'} />
               </a>
-              <a href="https://www.linkedin.com/in/cristina-bosa/" data-tooltip-id="my-tooltip" data-tooltip-content="Mi linkedin" target="_blank" rel="noreferrer" className="about-me__content__social--item">
+              <a href="https://www.linkedin.com/in/cristina-bosa/" data-tooltip-id="my-tooltip" data-tooltip-content="Linkedin" target="_blank" rel="noreferrer" className="about-me__content__social--item">
                 <IoLogoLinkedin size={'1.2em'}/>
               </a>
             </section>
