@@ -32,7 +32,9 @@
       gap: 1em;
       width: max-content;
       @include q.mobile {      
-        width: 100%;
+        
+        flex-direction: column;
+        align-items: left;
       }
       &--info{
         display:flex;

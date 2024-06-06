@@ -23,11 +23,12 @@ const HomePage = () => {
   const valueEmail = 'cristinabosasanchez@gmail.com'
   const [message, setMessage] = useState('')
   const [visible, setVisible] = useState(false)
+
   const handleProject = (id: number) => {
     navigate(`/project/${id}`)
   }
-  const handleCopyText = () => {
 
+  const handleCopyText = () => {
     navigator.clipboard.writeText(valueEmail).then(() => {
       setVisible(true)
       setMessage('Copiado correctamente')
@@ -96,26 +97,22 @@ const HomePage = () => {
           </section>
           <section className="skills__container">
             {
-              skills && skills.map((skill) => {
+              skills && skills.map((skill, index) => {
                 return (
-                  <section data-aos="fade-down" className={skill.develop == true ? 'skills__card skills__card--develop' : 'skills__card skills__card--design'}>
+                  <section key={index} data-aos="fade-down" className={skill.develop == true ? 'skills__card skills__card--develop' : 'skills__card skills__card--design'}>
                     <section className="skills__card__content">
                       <h3 className="skills__card--title">{skill.title}</h3>
                       <section className="skills__card--list">
                         {
-                          skill.skill.map((item) => {
+                          skill.skill.map((item, index) => {
                             return (
-                              <>
-                                <span className="skills__card--skills" data-tooltip-id="my-tooltip" data-tooltip-content={item.name}>
-                                  <img src={item.img} alt={item.name} />
-                                </span>
-                              </>
+                              <span key={index} className="skills__card--skills" data-tooltip-id="my-tooltip" data-tooltip-content={item.name}>
+                                <img src={item.img} alt={item.name} />
+                              </span>
                             )
                           })
                         }
                       </section>
-                      <Tooltip id="my-tooltip" />
-
                     </section>
                   </section>
                 )
@@ -128,9 +125,10 @@ const HomePage = () => {
             <h2 className="experience--title">Experiencia</h2>
           </section>
           <section className="experience__container">
-            {experience && experience.map((experience) => {
+            {experience && experience.map((experience, index) => {
               return (
                 <section data-aos="fade-right"
+                  key={index}
                   data-aos-easing="ease-in-sine"
                   className='experience__card'>
                   <h3 className="experience__card--year">{experience.years}</h3>
@@ -145,6 +143,7 @@ const HomePage = () => {
           <img src={me} data-aos="fade-down" alt="img-footer" className="img-footer" />
         </section>
       </main >
+      <Tooltip id="my-tooltip" />
 
     </>
   )

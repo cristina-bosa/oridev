@@ -6,7 +6,7 @@ import { IoLink } from "react-icons/io5";
 import { IoArrowBack } from "react-icons/io5";
 
 const ProjectIndividual = () => {
-  const { id } = useParams();
+  const { id } = useParams()
 
   const project = DataProjects.find(project => project.id === +id)
   const handleBack = () => {
@@ -15,7 +15,7 @@ const ProjectIndividual = () => {
   return (
     <>
       <HeaderComponent />
-      <main className="project">
+      <main className="project" key={id}>
         <section className="project__header">
           <button className="btn btn--primary" onClick={handleBack}><IoArrowBack />
             Atrás</button>
@@ -26,9 +26,9 @@ const ProjectIndividual = () => {
             <p className="project--description">{project?.summary}</p>
             <section className="project__url">
               {
-                project?.urls.map((url) => {
+                project?.urls.map((url, index) => {
                   return (
-                    <a className="project--url" href={url.url} target="_blank" rel="noreferrer"><IoLink />
+                    <a key={index} className="project--url" href={url.url} target="_blank" rel="noreferrer"><IoLink />
                       {url.name}</a>
                   )
                 })
@@ -40,14 +40,11 @@ const ProjectIndividual = () => {
               {project?.software.length === 0 ? "" : <h2>Software</h2>}
               <div className="project__tech__list">
                 {
-                  project?.software.map((software) => {
+                  project?.software.map((software, index) => {
                     return (
-                      <>
-                        <span className="project__tech--item" data-tooltip-id="my-tooltip" data-tooltip-content={software.name}>
-                          <img src={software.img} alt={software.name} />
-                        </span>
-                        <Tooltip id="my-tooltip" />
-                      </>
+                      <span key={index} className="project__tech--item" data-tooltip-id="my-tooltip" data-tooltip-content={software.name}>
+                        <img src={software.img} alt={software.name} />
+                      </span>
                     )
                   })
                 }
@@ -59,14 +56,12 @@ const ProjectIndividual = () => {
               {project?.tech.length === 0 ? "" : <h2>Tecnologías</h2>}
               <div className="project__tech__list">
                 {
-                  project?.tech.map((tech) => {
+                  project?.tech.map((tech, index) => {
                     return (
-                      <>
-                        <span className="project__tech--item" data-tooltip-id="my-tooltip" data-tooltip-content={tech.name}>
-                          <img src={tech.img} alt={tech.name} />
-                        </span>
-                        <Tooltip id="my-tooltip" />
-                      </>
+                      <span key={index} className="project__tech--item" data-tooltip-id="my-tooltip" data-tooltip-content={tech.name}>
+                        <img src={tech.img} alt={tech.name} />
+                      </span>
+
                     )
                   })
                 }
@@ -90,6 +85,7 @@ const ProjectIndividual = () => {
           </section>
         </section>
       </main >
+      <Tooltip id="my-tooltip" />
     </>
   )
 }
