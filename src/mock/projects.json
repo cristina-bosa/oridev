@@ -2,28 +2,221 @@
   {
     "id": 1,
     "title": "Triggers",
-    "type": "Professional"
+    "type": "Profesional",
+    "summary": "Triggers es una aplicación multiplataforma que sirve para visualizar indicadores generados a partir de distintas commodities en tiempo real.",
+    "challenge": "El reto de este proyecto fue crear una aplicación que fuese capaz de visualizar en tiempo real los datos de distintas commodities, además de ser multiplataforma. La aplicación debía ser capaz de mostrar los datos de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla.",
+    "urls": [
+      {
+        "name": "Play Store",
+        "url": "https://play.google.com/store/apps/details?id=com.nrg.triggers"
+      },
+      {
+        "name": "Apple Store",
+        "url": "https://apps.apple.com/es/app/5g-triggers/id6476554909"
+      }
+    ],
+    "software": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      },
+      {
+        "name": "Affinity Photo",
+        "img": "/assets/svg/photo.svg"
+      },
+      {
+        "name": "Affinity Publisher",
+        "img": "/assets/svg/publisher.svg"
+      }
+    ],
+    "tech": [
+      {
+        "name": "Vue",
+        "img": "/assets/svg/vue.svg"
+      },
+      {
+        "name": "HTML",
+        "img": "/assets/svg/html.svg"
+      },
+      {
+        "name": "CSS",
+        "img": "/assets/svg/css3.svg"
+      },
+      {
+        "name": "SASS",
+        "img": "/assets/svg/sass.svg"
+      },
+      {
+        "name": "JavaScript",
+        "img": "/assets/svg/js.svg"
+      },
+      {
+        "name": "TypeScript",
+        "img": "/assets/svg/ts.svg"
+      }
+    ],
+    "src_cover": "/assets/img/triggers/marca.jpg",
+    "gallery": [
+      "/assets/img/triggers/marca.jpg",
+      "/assets/img/triggers/mobile-dark.jpg",
+      "/assets/img/triggers/mobile.jpg"
+    ]
   },
   {
     "id": 2,
     "title": "Twelf Solutions",
-    "type": "Professional"
-
+    "type": "Profesional",
+    "summary": "Desarollo de una marca para una empresa en crecimiento, la cual se enfoca en la creación de aplicaciones mediante SalesForce. Además, se ha diseñado la página web.",
+    "challenge": "El reto de este proyecto fue realizar una marca acorde a los requerimientos del cliente, además de diseñar una página web que fuese capaz de mostrar los servicios de la empresa de una forma clara y sencilla.",
+    "urls": [
+      {
+        "name": "Web",
+        "url": "https://twelf.es"
+      }
+    ],
+    "software": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      },
+      {
+        "name": "Affinity Photo",
+        "img": "/assets/svg/photo.svg"
+      },
+      {
+        "name": "Affinity Publisher",
+        "img": "/assets/svg/publisher.svg"
+      }
+    ],
+    "tech": [],
+    "src_cover": "/assets/img/book.png",
+    "gallery": [
+      "/assets/img/twelf/marca.webp",
+      "/assets/img/twelf/web.webp"
+    ]
   },
   {
     "id": 3,
-    "title": "Books",
-    "type": "Academic"
+    "title": "Joafia",
+    "type": "Profesional",
+    "summary": "Dos personas que se unen para el resto de sus vidas, es un proyecto que se basa en la creacion de una boda, desde la papeleria hasta la pagina web, todo con un mismo estilo y concepto.",
+    "challenge": "El reto de este proyecto fue crear una aplicación que fuese capaz de visualizar en tiempo real los datos de distintas commodities, además de ser multiplataforma. La aplicación debía ser capaz de mostrar los datos de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla.",
+    "urls": [
+      {
+        "name": "Web",
+        "url": "https://joafia.es"
+      }
+    ],
+    "software": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      },
+      {
+        "name": "Affinity Photo",
+        "img": "/assets/svg/photo.svg"
+      },
+      {
+        "name": "Affinity Publisher",
+        "img": "/assets/svg/publisher.svg"
+      }
+    ],
+    "tech": [],
+    "src_cover": "/assets/img/joafia/marca.jpg",
+    "gallery": [
+      "/assets/img/joafia/marca.jpg",
+      "/assets/img/joafia/mobile.jpg"
+    ]
   },
   {
     "id": 4,
-    "title": "TFM",
-    "type": "Academic"
+    "title": "PL Ships",
+    "type": "Profesional",
+    "summary": "Creación de la marca, así como la página. La página es una web bastante sencilla que era lo que quería el cliente",
+    "challenge": "asdasdasdasdasdasdasdasd",
+    "urls": [
+      {
+        "name": "Web",
+        "url": "https://plships.com"
+      }
+    ],
+    "software": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      },
+      {
+        "name": "Affinity Photo",
+        "img": "/assets/svg/photo.svg"
+      }
+    ],
+    "tech": [
+      {
+        "name": "HTML",
+        "img": "/assets/svg/html.svg"
+      },
+      {
+        "name": "CSS",
+        "img": "/assets/svg/css3.svg"
+      },
+      {
+        "name": "JavaScript",
+        "img": "/assets/svg/js.svg"
+      }
+    ],
+    "src_cover": "/assets/img/book.png",
+    "gallery": [
+      "/assets/img/plships/marca.webp"
+    ]
   },
   {
-    "id": 6,
-    "title": "Joafia",
-    "type": "Professional"
+    "id": 5,
+    "title": "Books for all",
+    "type": "Personal",
+    "summary": "Creación de una página web para la venta de libros, la página es bastante sencilla, posee pqueñas animaciones. Si quieres comprobar el apartado de 'descuento' tienes que escribir 'SAVE10'.",
+    "challenge": "El reto de este proyecto fue crear una página web que fuese capaz de mostrar los libros de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla. Además, la página debía ser capaz de mostrar los libros de una forma clara y sencilla.",
+    "urls": [
+      {
+        "name": "Web",
+        "url": "https://oridevbooksforall.vercel.app"
+      }
+    ],
+    "software": [
+      {
+        "name": "Figma",
+        "img": "/assets/svg/figma.svg"
+      }
+    ],
+    "tech": [
+      {
+        "name": "React",
+        "img": "/assets/svg/react.svg"
+      },
+      {
+        "name": "HTML",
+        "img": "/assets/svg/html.svg"
+      },
+      {
+        "name": "CSS",
+        "img": "/assets/svg/css3.svg"
+      },
+      {
+        "name": "SASS",
+        "img": "/assets/svg/sass.svg"
+      },
+      {
+        "name": "JavaScript",
+        "img": "/assets/svg/js.svg"
+      },
+      {
+        "name": "TypeScript",
+        "img": "/assets/svg/ts.svg"
+      }
+    ],
+    "src_cover": "/assets/img/book.png",
+    "gallery": [
+      "/assets/img/booksforall/web.webp",
+      "/assets/img/booksforall/web_2.webp"
+    ]
   }
-
 ]

@@ -25,6 +25,41 @@
     @include q.mobile {      
       width: 100%;
     }
+    &__copy{
+      display: flex;
+      flex-direction: row;      
+      align-items: center;
+      gap: 1em;
+      width: max-content;
+      @include q.mobile {      
+        width: 100%;
+      }
+      &--info{
+        display:flex;
+        flex-direction: row;
+        gap: 1em;
+        padding: 1em;
+        border-radius: 1em;
+        background-color: #f3f3f3;
+        &:hover{
+          cursor: pointer;
+          background-color: darken(#f3f3f3, 5%);
+        }
+      }
+      &--alert{
+        display: flex;
+        flex-direction: row;
+        gap: .5em;
+        justify-content: center;
+        align-items: center;
+        
+        font-weight: variables.$bold;
+        color: variables.$text-color-primary;
+        @include q.mobile {      
+          width: 100%;
+        }
+      }
+    }
 
   }
   &--suppertitle{
@@ -44,8 +79,16 @@
     
     @include q.mobile {      
       width: 100%;
-    }
-    
+    }    
   }
-
+  &--description{
+    font-size: 1em;
+    color: variables.$text-color;
+    width: 55ch;
+    line-height: 1.2;
+    @include q.mobile {      
+      width: 100%;
+    }
+  }
 }
+

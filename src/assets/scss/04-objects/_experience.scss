@@ -62,9 +62,7 @@
       color: variables.$text-color;
       max-width: 10em;
       flex: 1;
-
     }
-
     &--jobtitle {
       flex: 2;
       font-size: 1em;
@@ -84,9 +82,8 @@
   height: 450px;
   position: absolute;
   bottom: -5em;
-  left: -5em;
+  left: -10em;
   @include q.mobile {      
-    bottom: -22em;   
-     
+    bottom: -22em;        
    }  
 }

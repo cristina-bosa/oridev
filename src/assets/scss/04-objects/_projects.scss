@@ -45,6 +45,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: .5em;
+    border-radius: 1em;
     
     &__header {
       display: flex;
@@ -52,19 +53,19 @@
       gap: .5em;
     }
     
-    &__footer {
-      
+    &__footer {      
       display: flex;
       align-items: center;
       justify-content: flex-end;
       opacity: 0;
       transition: opacity .3s ease-in-out;
-      p{
+      &--link{
+        display: flex;
+        align-items: center;
+        gap: .5em;
         color: variables.$text-light;
         font-size: 1em;
-        
-      }
-      
+      }      
     }
     
     &--title {
@@ -79,8 +80,7 @@
     }
     
     &:hover {
-      cursor: pointer;    
-      
+      cursor: pointer;      
       .projects__card__footer {
         opacity: 1;
       }

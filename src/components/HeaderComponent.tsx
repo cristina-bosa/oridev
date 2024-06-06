@@ -8,9 +8,10 @@ const HeaderComponent = () => {
         </section>
         <section>
           <ul className="navbar__menu">
-            <li className="navbar__item"><a className="navbar__link" href="/">Proyectos</a></li>
-            <li className="navbar__item"><a className="navbar__link" href="/about-me">Sobre mí</a></li>
-            <li className="navbar__item"><a className="navbar__link" href="/contact">Contacto</a></li>
+            <li className="navbar__item"><a className="navbar__link" href="/#projects">Proyectos</a></li>            
+            <li className="navbar__item"><a className="navbar__link" href="/#skills">Skills</a></li>            
+            <li className="navbar__item"><a className="navbar__link" href="/#experience">Experiencia</a></li>            
+            <li className="navbar__item"><a className="navbar__link" href="/">Contacto</a></li>
           </ul>
         </section>
       </nav>

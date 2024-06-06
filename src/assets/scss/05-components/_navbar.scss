@@ -6,7 +6,7 @@
   position: fixed;
   z-index: 2;
   padding: 1.5em;
-  max-width: 1600px;
+  max-width: 1200px;
   top: 0;
   left: 0;
   right: 0;
@@ -14,7 +14,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.011);
   backdrop-filter: blur(1em);
   @include q.mobile {      
    display: none;
@@ -37,7 +37,14 @@
     padding: 0;
     display: flex;
     align-items: center;
-
+    a{
+      text-decoration: none;
+      color: variables.$text-color;
+      font-size: 1em;          
+      &:hover{
+        color: variables.$secondary-color;        
+      }
+    }
     &::after {
       content: "";
       display: block;

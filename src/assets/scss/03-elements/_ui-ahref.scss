@@ -1,10 +1,11 @@
 @use '../00-settings/variables';
 
-a{
+a {
   color: variables.$text-color;
   text-decoration: none;
-  &:hover{
+
+  &:hover {
     color: variables.$secondary-color;
-    text-decoration: underline;
+
   }
 }

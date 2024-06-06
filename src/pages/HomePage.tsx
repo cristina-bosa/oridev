@@ -7,11 +7,37 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from "react-tooltip"
+import { useNavigate } from "react-router-dom"
+import { IoCopyOutline } from "react-icons/io5";
+import { IoCheckmark } from "react-icons/io5";
+import { IoArrowForwardOutline } from "react-icons/io5";
+
+
+import { useState } from "react"
 const HomePage = () => {
   AOS.init()
+  const navigate = useNavigate()
   const projects = DataProjects
   const skills = DataSkills
   const experience = DataExperience
+  const valueEmail = 'cristinabosasanchez@gmail.com'
+  const [message, setMessage] = useState('')
+  const [visible, setVisible] = useState(false)
+  const handleProject = (id: number) => {
+    navigate(`/project/${id}`)
+  }
+  const handleCopyText = () => {
+
+    navigator.clipboard.writeText(valueEmail).then(() => {
+      setVisible(true)
+      setMessage('Copiado correctamente')
+    }), () => {
+      setMessage('Error al copiar')
+    }
+    setTimeout(() => {
+      setVisible(false)
+    }, 2000)
+  }
 
   return (
     <>
@@ -21,10 +47,24 @@ const HomePage = () => {
           <section className="about-me__content">
             <span className="about-me--suppertitle">Encantada de conocerte,</span>
             <h1 className="about-me--title">Soy Cristina. Front-end developer y UX/UI designer</h1>
+            <p className="about-me--description">Con más de 4 años de experiencia en el desarrollo y diseño de aplicaciones web y móviles, enfocada en crear experiencias digitales intuitivas y atractivas.</p>
+            <section className="about-me__content__copy"
+              onClick={handleCopyText}>
+              <div className="about-me__content__copy--info">
+                <p>{valueEmail}</p>
+                <IoCopyOutline
+                  onClick={handleCopyText}
+                />
+              </div>
+              {visible && <section className="about-me__content__copy--alert" >
+                <p><IoCheckmark />
+                  {message}</p>
+              </section>}
+            </section>
           </section>
         </section>
 
-        <section data-aos="fade-down" className="projects">
+        <section data-aos="fade-down" className="projects" id="projects">
           <section className="projects__information">
             <h2 className="projects--title">Proyectos</h2>
             <p className="projects--description">Cada proyecto es más que una simple colección de diseños y códigos; es una historia en sí misma, donde la pasión por la excelencia y la atención al detalle se entrelazan.</p>
@@ -34,6 +74,7 @@ const HomePage = () => {
               return (
                 <section data-aos="fade-right"
                   key={project.id}
+                  onClick={() => handleProject(project.id)}
                   data-aos-easing="ease-in-sine"
                   className="projects__card">
                   <section className="projects__card__header">
@@ -41,14 +82,15 @@ const HomePage = () => {
                     <p className="projects__card--tag">{project.type}</p>
                   </section>
                   <section className="projects__card__footer">
-                    <p>Ver Proyecto</p>
+                    <p className="projects__card__footer--link">
+                      Ver proyecto<IoArrowForwardOutline /> </p>
                   </section>
                 </section>
               )
             })}
           </section>
         </section>
-        <section data-aos="fade-down" className="skills">
+        <section data-aos="fade-down" className="skills" id="skills">
           <section className="skills__information">
             <h2 className="skills--title">Skills</h2>
           </section>
@@ -81,7 +123,7 @@ const HomePage = () => {
             }
           </section>
         </section>
-        <section className="experience">
+        <section className="experience" id="experience">
           <section className="experience__information">
             <h2 className="experience--title">Experiencia</h2>
           </section>

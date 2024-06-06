@@ -12,7 +12,7 @@
 @use '04-objects/about-me';
 @use '04-objects/projects';
 @use '04-objects/experience';
-
+@use '04-objects/project';
 @use '04-objects/skills';
 @use '04-objects/education';
 
@@ -27,7 +27,6 @@
   font-family: typography.$regular;
   font-size: 18px;
 }
-
 body {
   background-color: colors.$background-color;
 

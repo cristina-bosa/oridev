@@ -8,9 +8,15 @@
   margin-bottom: 2em;
   display: flex;
   flex-direction: row;
+
   @include q.mobile {      
+    display: flex;
     flex-direction: column;
   }
+  @include q.mobile {
+    margin: 1em;
+  }
+
   &--title {
     font-size: 1.5em;
     font-weight: bold;
