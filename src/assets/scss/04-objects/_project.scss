@@ -13,6 +13,14 @@
     margin: 1em;
   }
 
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+
+  }
   &__content {
     display: flex;
     flex-direction: row;
@@ -78,6 +86,9 @@
     font-size: 1em;
     color: variables.$text-color;
     width: 40ch;
+    @include q.mobile {
+      width: 100%;
+    }
   }
 
   &__url {
@@ -121,6 +132,10 @@
         width: auto;
         height: auto;
         padding: 1em;
+        p{
+          font-size: 1em;
+          color: variables.$text-color;          
+        }
       }
     }
     &--left{

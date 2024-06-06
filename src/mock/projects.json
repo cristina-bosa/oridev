@@ -4,7 +4,7 @@
     "title": "Triggers",
     "type": "Profesional",
     "summary": "Triggers es una aplicación multiplataforma que sirve para visualizar indicadores generados a partir de distintas commodities en tiempo real.",
-    "challenge": "El reto de este proyecto fue crear una aplicación que fuese capaz de visualizar en tiempo real los datos de distintas commodities, además de ser multiplataforma. La aplicación debía ser capaz de mostrar los datos de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla.",
+    "challenge": "El reto de este proyecto fue crear una aplicación que fuese capaz de visualizar en tiempo real los datos de distintas commodities, además de ser multiplataforma. La aplicación debía ser capaz de mostrar los datos de una forma clara y sencilla.",
     "urls": [
       {
         "name": "Play Store",
@@ -67,7 +67,7 @@
     "title": "Twelf Solutions",
     "type": "Profesional",
     "summary": "Desarollo de una marca para una empresa en crecimiento, la cual se enfoca en la creación de aplicaciones mediante SalesForce. Además, se ha diseñado la página web.",
-    "challenge": "El reto de este proyecto fue realizar una marca acorde a los requerimientos del cliente, además de diseñar una página web que fuese capaz de mostrar los servicios de la empresa de una forma clara y sencilla.",
+    "challenge": "El reto de este proyecto fue realizar una marca acorde a los requerimientos del cliente, además de diseñar una página web que fuese capaz de mostrar con rápidez lo que hace la empresa, en este caso, aún no estaban definidos los servicios, por lo que se ha optado por mostrar el nombre de la misma y un enlace de contacto.",
     "urls": [
       {
         "name": "Web",
@@ -100,7 +100,7 @@
     "title": "Joafia",
     "type": "Profesional",
     "summary": "Dos personas que se unen para el resto de sus vidas, es un proyecto que se basa en la creacion de una boda, desde la papeleria hasta la pagina web, todo con un mismo estilo y concepto.",
-    "challenge": "El reto de este proyecto fue crear una aplicación que fuese capaz de visualizar en tiempo real los datos de distintas commodities, además de ser multiplataforma. La aplicación debía ser capaz de mostrar los datos de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla.",
+    "challenge": "Joafia fue un reto personal, los clientes querían que toda la temática de su boda estuviese basado en el art deco, de ahí, a que se escogieran unos colores determinados para que en un solo vistazo al ver las invitaciones de boda o el mismo aspecto gráfico de la web te recordase a esa ese arte.",
     "urls": [
       {
         "name": "Web",
@@ -132,8 +132,8 @@
     "id": 4,
     "title": "PL Ships",
     "type": "Profesional",
-    "summary": "Creación de la marca, así como la página. La página es una web bastante sencilla que era lo que quería el cliente",
-    "challenge": "asdasdasdasdasdasdasdasd",
+    "summary": "Creación de la marca corporativa de la empresa así como la página. La página es una web bastante sencilla que era lo que quería el cliente",
+    "challenge": null,
     "urls": [
       {
         "name": "Web",
@@ -174,7 +174,7 @@
     "title": "Books for all",
     "type": "Personal",
     "summary": "Creación de una página web para la venta de libros, la página es bastante sencilla, posee pqueñas animaciones. Si quieres comprobar el apartado de 'descuento' tienes que escribir 'SAVE10'.",
-    "challenge": "El reto de este proyecto fue crear una página web que fuese capaz de mostrar los libros de una forma clara y sencilla, además de ser capaz de mostrar los datos de una forma clara y sencilla. Además, la página debía ser capaz de mostrar los libros de una forma clara y sencilla.",
+    "challenge": null,
     "urls": [
       {
         "name": "Web",

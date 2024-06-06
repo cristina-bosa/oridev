@@ -3,15 +3,23 @@ import { useParams } from "react-router-dom"
 import DataProjects from '../mock/projects.json'
 import { Tooltip } from "react-tooltip";
 import { IoLink } from "react-icons/io5";
+import { IoArrowBack } from "react-icons/io5";
+
 const ProjectIndividual = () => {
   const { id } = useParams();
 
   const project = DataProjects.find(project => project.id === +id)
-
+  const handleBack = () => {
+    window.history.back();
+  }
   return (
     <>
       <HeaderComponent />
       <main className="project">
+        <section className="project__header">
+          <button className="btn btn--primary" onClick={handleBack}><IoArrowBack />
+            Atrás</button>
+        </section>
         <section className="project__content">
           <section className="project__information">
             <h1 className="project--title">{project?.title}</h1>
@@ -71,13 +79,17 @@ const ProjectIndividual = () => {
             <img className="project-img" alt={`${project?.title}`} src={project?.gallery[0]} />
           </section>
           <section className="project__additionalcontent--right">
-            <div className="project__additionalcontent--right--card">
-              <h3>Reto</h3>
-              <p>{project?.challenge}</p>
-            </div>
+
+            {project?.challenge === null ? ""
+              :
+              (<div className="project__additionalcontent--right--card">
+                <h2>Reto</h2>
+                <p> {project?.challenge}</p></div>)}
+
+
           </section>
         </section>
-      </main>
+      </main >
     </>
   )
 }
