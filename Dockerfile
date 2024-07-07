@@ -1,19 +1,21 @@
-FROM node:18-alpine AS builder
+FROM node:lts AS builder
 
-WORKDIR /src
+RUN npm install -g pnpm
 
-COPY package.json ./
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
 
 RUN pnpm install
 
 COPY . .
 
-RUN nginx:alpine
+RUN pnpm run build
 
-COPY --from=builder /dist /usr/share/nginx/html
+FROM nginx:stable-alpine
+
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
-
-
