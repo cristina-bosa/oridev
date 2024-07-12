@@ -1,4 +1,4 @@
-name: Flujo de CI
+name: Build
 on: [push]
 
 jobs:
@@ -20,6 +20,7 @@ jobs:
         if: github.ref_type == 'tag'
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
           tags: |
             ghcr.io/cristina-bosa/oridev:${{ github.ref_name }}
