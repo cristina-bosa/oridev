@@ -1,8 +1,27 @@
 [
   {
+    "title":"UX/UI Designer & Front-end Developer",
+    "company":"DLT Code",
+    "years":"2024 - Actualmente",
+    "tags":[
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Figma",
+      "Affinity 2"
+    ],
+    "actual":true,
+    "description":[
+      "Diseño UX/UI para aplicaciones web",
+      "Programación mediante React + Next.js + Typescriot",
+      "Figma",
+      "Prototipado de baja y alta fidelidad"
+    ]
+  },
+  {
     "title": "UX/UI Designer & Front-end Developer",
     "company": "Emprende soluciones y servicios 33, SL",
-    "years": "2024 - Actualmente",
+    "years": "2024 - 2024",
     "tags": [
       "React Native",
       "Expo",
@@ -10,7 +29,7 @@
       "Figma",
       "Affinity 2"
     ],
-    "actual": true,
+    "actual": false,
     "description": [
       "Diseño UX/UI para aplicaciones web y móviles",
       "Programación mediante React Native + Expo + TypeScrit",
@@ -27,9 +46,12 @@
       "CSS3/SASS",
       "JavaScript",
       "TypeScript",
-      "Ionic",
+      "Expo",
       "Vue",
+      "React", 
+      "Python",
       "Figma",
+      "Next.js",
       "Adobe Creative Suite",
       "Affinity 2"
     ],
