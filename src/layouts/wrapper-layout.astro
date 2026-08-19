@@ -1,0 +1,59 @@
+---
+import "@/styles/global.css";
+import Header from "@/components/navigation/header.astro";
+import Footer from "@/components/navigation/footer.astro";
+import Head from "@/components/seo/head.astro";
+---
+
+<html lang="en">
+  <Head />
+  <body class="body">
+    <Header />
+    <main class="main">
+      <slot class="content" />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .main {
+    @apply flex flex-col items-center justify-center min-h-screen gap-24;
+    @apply container mx-auto;
+    @apply relative;
+  }
+  .body {
+    position: relative;
+    width: 100%;
+    /* `clip` y no `hidden`: hidden forzaría overflow-y a auto, el body
+       pasaría a ser contenedor de scroll y rompería el header sticky.
+       Absorbe el ancho de barra que se lleva el 100vw del carrusel. */
+    overflow-x: clip;
+  }
+  .body::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-rule);
+    top: 0;
+    left: 4rem;
+    z-index: 2;
+  }
+  .body::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-rule);
+    top: 0;
+    right: 4rem;
+    z-index: 2;
+  }
+
+  .content {
+    @apply w-full min-h-screen px-4;
+  }
+</style>

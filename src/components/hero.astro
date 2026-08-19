@@ -1,0 +1,157 @@
+---
+import { ExternalLink } from "@lucide/astro";
+
+const socials = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/cristina-bosa/",
+    icon: ExternalLink,
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/cristina-bosa",
+    icon: ExternalLink,
+  },
+];
+
+const details = [
+  { term: "Time zone", value: "Canary Islands" },
+  { term: "Location", value: "Las Palmas" },
+  { term: "Experience", value: "8+ years" },
+  { term: "Languages", value: "Spanish and English" },
+  { term: "Role", value: "Front-end tech lead & UX/UI designer" },
+  { term: "Skills", value: "Design, code, accessibility" },
+];
+---
+
+<section class="hero">
+  <div class="hero__content">
+    <h1 class="hero__title">Front-end developer & UI/UX designer</h1>
+    <p class="hero__description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
+      doloremque! Necessitatibus amet quas corporis id et ut similique nemo, non
+      incidunt tempore pariatur dolorum nisi? Tenetur saepe quisquam minima et.
+    </p>
+  </div>
+  <div class="hero__info">
+    <div class="hero__actions">
+      <p class="hero__availability">Available for new projects</p>
+      <div class="hero__links">
+        {
+          socials.map((social) => (
+            <a
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.name}
+              aria-hidden="true"
+            >
+              <social.icon stroke-width={1.5} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <dl class="hero__personal">
+      {
+        details.map(({ term, value }) => (
+          <Fragment>
+            <dt class="hero__personal__term">{term}</dt>
+            <dd class="hero__personal__value">{value}</dd>
+          </Fragment>
+        ))
+      }
+    </dl>
+  </div>
+
+  <div class="hero__shape"></div>
+</section>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .hero {
+    @apply flex flex-col items-start justify-around w-full h-screen;
+    @apply relative;
+  }
+  .hero::before{
+    @apply content-[''];
+    @apply absolute w-128.25 h-128.25;
+    @apply bg-accent-200;
+    @apply rounded-full;
+    top: 0;
+    right: 0;
+    filter: blur(900px);
+  }
+    
+  .hero__content {
+    @apply flex flex-col items-start justify-center w-full max-w-2xl gap-4;
+  }
+  .hero__title {
+    @apply text-5xl font-bold text-ink;
+    @apply text-left;
+    @apply max-w-2xl;
+  }
+  .hero__description {
+    @apply text-lg text-ink;
+    @apply text-left;
+    @apply max-w-2xl;
+  }
+  .hero__info {
+    @apply flex flex-row items-start justify-between w-full;
+  }
+  .hero__actions {
+    @apply flex flex-col items-start justify-between w-full max-w-2xl;
+    @apply mt-4;
+  }
+  .hero__links {
+    @apply flex items-center justify-start gap-4;
+  }
+  .hero__links a {
+    @apply text-ink;
+    @apply hover:text-brand;
+    @apply flex items-center gap-2;
+  }
+  .hero__availability {
+    @apply text-ink;
+    @apply text-left;
+    @apply max-w-2xl;
+    @apply uppercase;
+    @apply space-x-2;
+    @apply relative;
+  }
+  .hero__availability::before,
+  .hero__availability::after {
+    content: "";
+    @apply absolute w-2 h-2 bg-accent-200 rounded-full;
+    top: 50%;
+    left: -1rem;
+    translate: 0 -50%;
+  }
+
+  .hero__availability::after {
+    animation: availability-pulse 2s ease-out infinite;
+  }
+
+  @keyframes availability-pulse {
+    from {
+      scale: 1;
+      opacity: 0.6;
+    }
+    to {
+      scale: 3.5;
+      opacity: 0;
+    }
+  }
+
+  .hero__personal {
+    @apply grid gap-x-6 gap-y-2;
+    grid-template-columns: auto auto;
+  }
+  .hero__personal__term {
+    @apply text-right uppercase text-sm text-ink font-bold;
+  }
+  .hero__personal__value {
+    @apply text-sm text-ink-muted;
+  }
+</style>

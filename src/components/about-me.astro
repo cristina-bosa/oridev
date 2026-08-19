@@ -1,0 +1,64 @@
+---
+const skillGroups = [
+  {
+    title: "Front-end",
+    skills: [
+      "React",
+      "Next.js",
+      "Astro",
+      "TailwindCSS",
+      "TypeScript",
+      "Motion",
+      "HTML & CSS",
+      "Architecture: Atomic Design, Component Driven Development",
+    ],
+  },
+  {
+    title: "Design & UX/UI",
+    skills: [
+      "Figma",
+      "Design tokens",
+      "Prototyping",
+      "WCAG / Accessibility (a11y)",
+      "Typography",      
+      "Affinity",
+    ],
+  },
+  {
+    title: "Tooling",
+    skills: ["Git & GitHub", "Storybook", "CI/CD", "Vercel", "Docker"],
+  },
+];
+---
+
+<section id="about-me" class="about-me" aria-labelledby="about-me-title">
+  <div class="about-me__intro">
+    <h2 id="about-me-title" class="about-me__title">About me</h2>
+    <p class="about-me__description">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
+      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
+      obcaecati, cumque, sint natus iste amet voluptas error?
+    </p>
+  </div>
+
+
+</section>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .about-me {
+    @apply flex flex-col justify-center w-full;
+    @apply scroll-mt-20;
+  }
+  .about-me__intro {
+    @apply flex flex-col items-start gap-4 max-w-2xl;
+  }
+  .about-me__title {
+    @apply text-4xl font-bold text-ink;
+  }
+  .about-me__description {
+    @apply text-lg text-ink;
+  }
+ 
+</style>

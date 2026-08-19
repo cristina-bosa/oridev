@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Variante `dark:` coherente con los tres estados: sistema, claro forzado
+   y oscuro forzado. Sin esto, `dark:` seguiría mirando solo al sistema
+   y se desincronizaría del toggle. */
+@custom-variant dark {
+  @media (prefers-color-scheme: dark) {
+    &:where(html:not([data-theme="light"]) *) {
+      @slot;
+    }
+  }
+  &:where(html[data-theme="dark"] *) {
+    @slot;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Escalas crudas — mismos valores en claro y oscuro.
+   Generan bg-primary-400, text-accent-200, border-primary-100…
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  --color-primary-100: #8579f3;
+  --color-primary-200: #6c5df0;
+  --color-primary-300: #5a4ec7;
+  --color-primary-400: #473e9e;
+  --color-primary-500: #352e75;
+  --color-primary-700: #201D47;
+
+  --color-accent-100: #f27da0;
+  --color-accent-200: #ef648e;
+  --color-accent-300: #cc5679;
+  --color-accent-400: #a34561;
+  --color-accent-500: #7a3349;
+  --color-accent-700: #522230;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tokens semánticos — lo único que cambia entre modos.
+
+   `light-dark()` declara los dos valores en una sola línea y elige
+   según el `color-scheme` vigente. Así no hay que duplicar el bloque
+   entero en un @media, y el toggle solo tiene que cambiar el esquema.
+
+   Contrastes WCAG comprobados contra el fondo de cada modo.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: light dark;
+
+  --ui-background: light-dark(#ffffff, var(--color-primary-700));
+  /* La tarjeta apenas se despega del fondo: quien marca el borde
+     es `--ui-border`, no un salto de luminancia. */
+  --ui-surface: light-dark(
+    #ffffff,
+    color-mix(in srgb, var(--color-primary-700) 85%, var(--color-primary-500))
+  );
+
+  /* Texto principal — 15.9:1 en claro, 14.9:1 en oscuro */
+  --ui-ink: light-dark(var(--color-primary-700), #f7f7fb);
+  /* Texto secundario — 7.1:1 en claro, 7.0:1 en oscuro.
+     Derivado de la marca en vez de un gris suelto. */
+  --ui-ink-muted: light-dark(
+    color-mix(in srgb, var(--color-primary-700) 75%, #ffffff),
+    color-mix(in srgb, #f7f7fb 65%, var(--color-primary-700))
+  );
+
+  /* Acento sobre TEXTO pequeño: necesita 4.5:1, así que en claro baja
+     a accent-400 (5.9:1). El accent-200 solo da 3.05:1 y ahí fallaba. */
+  --ui-brand: light-dark(var(--color-accent-400), var(--color-accent-200));
+
+  /* Acento DECORATIVO: filetes, bordes y puntos. Umbral 3:1, así que
+     aquí sí se conserva el rosa vivo de la paleta. */
+  --ui-rule: light-dark(var(--color-accent-200), var(--color-accent-200));
+
+  /* Bordes de controles y tarjetas. En oscuro no vale primary-400:
+     sobre el fondo da 1.86:1 y el mínimo para delimitar un control
+     es 3:1 (WCAG 1.4.11). */
+  --ui-border: light-dark(var(--color-primary-100), var(--color-primary-200));
+}
+
+/* Sin atributo manda el sistema; con él, manda el usuario. */
+html[data-theme="light"] {
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* `inline` es obligatorio aquí: sin él Tailwind congelaría el valor
+   claro en tiempo de compilación y el modo oscuro no cambiaría nada. */
+@theme inline {
+  --color-background: var(--ui-background);
+  --color-surface: var(--ui-surface);
+  --color-ink: var(--ui-ink);
+  --color-ink-muted: var(--ui-ink-muted);
+  --color-brand: var(--ui-brand);
+  --color-rule: var(--ui-rule);
+  --color-border: var(--ui-border);
+
+  /* Fuentes que Astro declara en :root con hash en runtime */
+  --font-display: var(--font-funnel-display);
+  --font-body: var(--font-funnel-sans);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}

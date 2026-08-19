@@ -1,0 +1,35 @@
+---
+
+---
+
+<section id="experiences" class="experiences" aria-labelledby="experiences-title">
+  <div class="experiences__intro">
+    <h2 id="experiences-title" class="experiences__title">Experiences</h2>
+    <p class="experiences__description">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
+      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
+      obcaecati, cumque, sint natus iste amet voluptas error?
+    </p>
+  </div>
+
+
+</section>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .experiences {
+    @apply flex flex-col justify-center w-full;
+    @apply scroll-mt-20;
+  }
+  .experiences__intro {
+    @apply flex flex-col items-start gap-4 max-w-2xl;
+  }
+  .experiences__title {
+    @apply text-4xl font-bold text-ink;
+  }
+  .experiences__description {
+    @apply text-lg text-ink;
+  }
+ 
+</style>

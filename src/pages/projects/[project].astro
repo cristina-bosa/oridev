@@ -1,0 +1,24 @@
+---
+export function getStaticPaths() {
+  // TODO: reemplazar por una content collection cuando existan los proyectos reales.
+  const projects = ["proyecto-uno", "proyecto-dos"];
+
+  return projects.map((project) => ({ params: { project } }));
+}
+
+const { project } = Astro.params;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>{project}</h1>
+  </body>
+</html>

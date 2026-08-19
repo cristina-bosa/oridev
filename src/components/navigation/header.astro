@@ -1,0 +1,102 @@
+---
+import { Moon, Sun } from "@lucide/astro";
+---
+<header class="header">
+  <nav class="nav">
+    <div class="nav__brand">
+      <p>oridev</p>
+    </div>
+
+    <ul class="nav__menu">
+      <li class="nav__menu__item"><a href="#about-me">About me</a></li>
+      <li class="nav__menu__item"><a href="#skills">Skills</a></li>
+      <li class="nav__menu__item"><a href="/projects">Projects</a></li>
+      <li class="nav__menu__item"><a href="#experiences">Experiences</a></li>
+      <li class="nav__menu__item"><a href="#education">Education</a></li>
+    </ul>
+
+    <button type="button" class="theme-toggle" aria-pressed="false">
+      <Moon class="dark:hidden" size={18} stroke-width={1.5} aria-hidden="true" />
+      <Sun class="hidden dark:block" size={18} stroke-width={1.5} aria-hidden="true" />
+      <span class="sr-only">Dark mode</span>
+    </button>
+  </nav>
+</header>
+
+<style>
+  @reference "@/styles/global.css";
+  .header {
+    @apply flex justify-center items-center w-full h-16;
+    @apply sticky top-0 z-1;
+    @apply border-b border-solid border-rule bg-transparent;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .header {
+    
+      animation-name: header-blur;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-timeline: scroll(root block);
+      animation-range: 0 80px;
+    }
+  }
+  .nav {
+    @apply flex justify-between items-center w-full px-8;
+    @apply container mx-auto;
+  }
+  .nav__brand {
+    @apply font-bold text-ink;
+  }
+  .nav__menu {
+    @apply flex gap-4;
+  }
+  .nav__menu__item {
+    @apply text-ink;
+    @apply hover:text-brand;
+  }
+  .theme-toggle {
+    @apply flex items-center justify-center size-9 shrink-0;
+    @apply rounded-full border border-solid border-border;
+    @apply text-ink cursor-pointer;
+    @apply hover:border-brand hover:text-brand;
+  }
+    @keyframes header-blur {
+    from {
+      background-color: transparent;
+      backdrop-filter: blur(0px);
+    }
+    to {
+      background-color: color-mix(in oklab, var(--ui-background) 20%, transparent);
+      backdrop-filter: blur(12px);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>(".theme-toggle");
+
+  if (toggle) {
+    const root = document.documentElement;
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // Sin atributo el tema lo decide el sistema, así que hay que resolverlo.
+    const resolved = () =>
+      root.dataset.theme ?? (systemDark.matches ? "dark" : "light");
+
+    const sync = () =>
+      toggle.setAttribute("aria-pressed", String(resolved() === "dark"));
+
+    sync();
+    // Mientras no haya elección manual, seguir al sistema si cambia.
+    systemDark.addEventListener("change", sync);
+
+    toggle.addEventListener("click", () => {
+      const next = resolved() === "dark" ? "light" : "dark";
+
+      root.dataset.theme = next;
+      localStorage.setItem("theme", next);
+      sync();
+    });
+  }
+</script>

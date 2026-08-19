@@ -1,0 +1,16 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p>{year}</p>
+</footer>
+
+<style>
+  @reference "@/styles/global.css";
+  .footer {
+    @apply flex justify-center items-center w-full h-16;
+    @apply border-t border-solid border-rule;
+    @apply relative;
+  }
+</style>
