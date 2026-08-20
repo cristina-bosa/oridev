@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "oridev",
+  "compatibility_date": "2026-08-20",
+  // Sin `main`: es un Worker de solo assets estáticos, no hay código de servidor.
+  "assets": {
+    "directory": "./dist",
+    // Astro genera /projects/slug/index.html; "auto-trailing-slash" resuelve
+    // tanto /projects/slug como /projects/slug/.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
