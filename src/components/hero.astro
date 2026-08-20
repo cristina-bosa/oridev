@@ -42,11 +42,10 @@ const details = [
             <a
               href={social.url}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
               aria-label={social.name}
-              aria-hidden="true"
             >
-              <social.icon stroke-width={1.5} />
+              <social.icon stroke-width={1.5} aria-hidden="true" />
             </a>
           ))
         }
@@ -63,8 +62,6 @@ const details = [
       }
     </dl>
   </div>
-
-  <div class="hero__shape"></div>
 </section>
 
 <style>

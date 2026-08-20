@@ -3,14 +3,30 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <p>{year}</p>
+  <div class="footer__content">
+    <a class="footer__brand" href="/">oriclux</a>
+    <p class="footer__year">{year}</p>
+  </div>
+  
 </footer>
 
 <style>
   @reference "@/styles/global.css";
   .footer {
-    @apply flex justify-center items-center w-full h-16;
+    @apply flex justify-between items-center w-full h-16 px-8;
     @apply border-t border-solid border-rule;
-    @apply relative;
+    @apply mt-12;
+    
+  }
+  .footer__content{
+    @apply flex justify-between items-center w-full h-16;
+    @apply container mx-auto;
+  }
+  .footer__brand{
+    @apply font-bold text-ink;
+
+  }
+  .footer__year{
+    @apply text-ink;
   }
 </style>

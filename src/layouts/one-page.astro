@@ -1,18 +1,19 @@
 ---
-import Hero from "@/components/hero.astro";
 import WrapperLayout from "./wrapper-layout.astro";
-import Experiences from "@/components/experiences.astro";
+import Hero from "@/components/hero.astro";
+import Projects from "@/components/projects.astro";
+import Experience from "@/components/experience.astro";
+import Skills from "@/components/skills.astro";
 import AboutMe from "@/components/about-me.astro";
 import Education from "@/components/education.astro";
-import Skills from "@/components/skills.astro";
-import Projects from "@/components/projects.astro";
+import Contact from "@/components/contact.astro";
 ---
 
 <WrapperLayout>
   <Hero />
-  <AboutMe />
-  <Skills />
   <Projects />
-  <Experiences />
-  <Education />  
+  <Experience />
+  <Skills />
+  <Education />
+  <Contact />
 </WrapperLayout>

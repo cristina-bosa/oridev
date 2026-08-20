@@ -71,6 +71,10 @@
      aquí sí se conserva el rosa vivo de la paleta. */
   --ui-rule: light-dark(var(--color-accent-200), var(--color-accent-200));
 
+  /* Fondo de una fila desplegada / seleccionada.
+     Con `--ui-ink` encima da 5.2:1 en claro y 8.2:1 en oscuro. */
+  --ui-highlight: light-dark(var(--color-accent-200), var(--color-accent-500));
+
   /* Bordes de controles y tarjetas. En oscuro no vale primary-400:
      sobre el fondo da 1.86:1 y el mínimo para delimitar un control
      es 3:1 (WCAG 1.4.11). */
@@ -94,6 +98,7 @@ html[data-theme="dark"] {
   --color-ink-muted: var(--ui-ink-muted);
   --color-brand: var(--ui-brand);
   --color-rule: var(--ui-rule);
+  --color-highlight: var(--ui-highlight);
   --color-border: var(--ui-border);
 
   /* Fuentes que Astro declara en :root con hash en runtime */

@@ -1,0 +1,103 @@
+---
+import { ArrowUpRight, Mail } from "@lucide/astro";
+
+const email = "cristinabosasanchez@gmail.com";
+
+const channels = [
+  {
+    label: "Email",
+    value: email,
+    href: `mailto:cristinabosasanchez@gmail.com`,
+    icon: Mail,
+    external: false,
+  },
+  {
+    label: "LinkedIn",
+    value: "in/cristina-bosa",
+    href: "https://www.linkedin.com/in/cristina-bosa/",
+    icon: ArrowUpRight,
+    external: true,
+  },
+  {
+    label: "GitHub",
+    value: "cristina-bosa",
+    href: "https://github.com/cristina-bosa",
+    icon: ArrowUpRight,
+    external: true,
+  },
+];
+---
+
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="contact__intro">
+    <h2 id="contact-title" class="contact__title">Contact</h2>
+    <p class="contact__description">
+      The fastest way to reach me is email, and my full CV lives on LinkedIn.
+    </p>
+  </div>
+
+  <ul class="contact__list">
+    {
+      channels.map(({ label, value, href, icon: Icon, external }) => (
+        <li class="contact__item">
+          <a
+            class="contact__link"
+            href={href}
+            {...(external
+              ? { target: "_blank", rel: "me noopener noreferrer" }
+              : {})}
+          >
+            <Icon class="contact__icon" size={18} stroke-width={1.5} aria-hidden="true" />
+            <span class="contact__label">{label}</span>
+            <span class="contact__value">{value}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .contact {
+    @apply flex flex-col justify-center w-full gap-8;
+    @apply scroll-mt-20;
+  }
+  .contact__intro {
+    @apply flex flex-col items-start gap-4 max-w-2xl;
+  }
+  .contact__title {
+    @apply text-4xl font-bold text-ink;
+  }
+  .contact__description {
+    @apply text-lg text-ink;
+  }
+  .contact__list {
+    @apply flex flex-col;
+  }
+  .contact__item {
+    @apply border-b border-solid border-ink;
+  }
+  .contact__link {
+    @apply flex flex-row items-center gap-4 py-4;
+    @apply text-ink;
+    @apply transition-colors duration-200;
+    @apply hover:text-brand focus-visible:text-brand;
+  }
+  .contact__icon {
+    @apply shrink-0;
+  }
+  .contact__label {
+    @apply w-32 shrink-0 text-sm;
+  }
+  .contact__value {
+    @apply text-lg font-bold;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact__link {
+      transition: none;
+    }
+  }
+</style>

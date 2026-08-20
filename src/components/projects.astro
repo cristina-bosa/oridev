@@ -1,36 +1,38 @@
 ---
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "@lucide/astro";
+import ProjectsCarousel, {
+  type Project,
+} from "@/components/react/ProjectsCarousel.tsx";
 
-const projects = [
+const projects: Project[] = [
   {
     title: "NRG Consulting",
     tags: ["Develop", "UX/UI", "Design system"],
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    link: "#",
+      "Página web corporativa de la empresa.",
+    link: "https://www.nrgconsulting.com/",
     personal: false,
   },
   {
     title: "Seroil Gas Ahorro",
     tags: ["UX/UI", "Design system"],
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    link: "#",
+      "Plataforma web que proporciona a los clientes la posibilidad de comparar sus facturas de gas con las ofertas disponibles de la distribuidora.",
+    link: "https://seroilgasahorro.com/en",
     personal: false,
   },
     {
     title: "CAES",
     tags: ["Develop", "UX/UI"],
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    link: "#",
+      "Plataforma web que permite la gestión de solicitudes para beneficiarios como intermediarios de Certificados de Ahorro de Energía (CAES) proporcionado por el MITECO.",
+    link: "https://caes.digital/es",
     personal: false,
   },
   {
     title: "Triggers",
     tags: ["Develop", "UX/UI"],
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+      "Triggers es una aplicación multiplataforma que sirve para visualizar indicadores generados a partir de distintas commodities en tiempo real.",
     link: "#",
     personal: false,
   },
@@ -38,7 +40,7 @@ const projects = [
     title: "Libri",
     tags: ["Develop", "UX/UI", "Design system"],
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+      "PWA que permite al usuario crear y gestionar su biblioteca personal.",
     link: "#",
     personal: true,
   },
@@ -55,58 +57,9 @@ const projects = [
     </p>
   </div>
 
-  <div
-    class="projects__viewport"
-    id="projects-viewport"
-    tabindex="0"
-    aria-label="Projects carousel"
-  >
-    <ul class="projects__track">
-      {
-        projects.map(({ title, description, link, tags }, index) => (
-          <li class="projects__slide" style={`--index: ${index}`}>
-            <article class="project">
-              <div class="project__preview" aria-hidden="true" />
-              <div class="project__body">
-                <h3 class="project__title">{title}</h3>
-                <p class="project__description">{description}</p>
-                <ul class="project__tags">
-                  {tags.map((tag) => (
-                    <li class="project__tag">{tag}</li>
-                  ))}
-                </ul>
-                <a class="project__link" href={link}>
-                  See more<span class="sr-only"> about {title}</span>
-                  <ArrowUpRight size={16} stroke-width={1.5} aria-hidden="true" />
-                </a>
-              </div>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-
-  <div class="projects__controls">
-    <button
-      type="button"
-      class="projects__control"
-      data-scroll-direction="-1"
-      aria-controls="projects-viewport"
-    >
-      <ChevronLeft size={20} stroke-width={1.5} aria-hidden="true" />
-      <span class="sr-only">Previous projects</span>
-    </button>
-    <button
-      type="button"
-      class="projects__control"
-      data-scroll-direction="1"
-      aria-controls="projects-viewport"
-    >
-      <ChevronRight size={20} stroke-width={1.5} aria-hidden="true" />
-      <span class="sr-only">Next projects</span>
-    </button>
-  </div>
+  {/* `client:visible` hidrata al acercarse a pantalla: el runtime de React
+      no se descarga mientras el carrusel esté lejos. */}
+  <ProjectsCarousel projects={projects} client:visible />
 </section>
 
 <style>
@@ -125,199 +78,4 @@ const projects = [
   .projects__description {
     @apply text-lg text-ink;
   }
-
-  /* ── Carrusel ──────────────────────────────────────────────── */
-  .projects__viewport {
-    /* Sangrado a ancho completo: se escapa del `container` de .main
-       estirándose a 100vw y compensando con márgenes negativos. */
-    width: 100vw;
-    margin-inline: calc(50% - 50vw);
-    overflow-x: auto;
-    /* `hidden` evita una barra vertical parásita: el arco sobresale
-       en vertical y el padding le deja sitio de sobra. */
-    overflow-y: hidden;
-    padding-block: 5rem;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;    
-  }
-  .projects__viewport::-webkit-scrollbar {
-    display: none;
-  }
-  .projects__track {
-    @apply flex gap-6;
-    width: max-content;
-    /* Deja que la primera y la última tarjeta puedan quedar centradas. */
-    padding-inline: max(1rem, calc(50% - 9rem));
-  }
-  .projects__slide {
-    @apply shrink-0 w-72;
-    scroll-snap-align: center;
-  }
-
-  /* Los estados de entrada solo existen si el script llegó a correr:
-     sin JS no hay atributo y las tarjetas se ven con normalidad. */
-  .projects[data-reveal="pending"] .projects__slide {
-    opacity: 0;
-  }
-  .projects[data-reveal="shown"] .projects__slide {
-    animation: project-enter 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
-    animation-delay: calc(var(--index, 0) * 90ms);
-  }
-
-  @keyframes project-enter {
-    from {
-      opacity: 0;
-      translate: 0 32px;
-    }
-    to {
-      opacity: 1;
-      translate: 0 0;
-    }
-  }
-
-  /* ── El arco ───────────────────────────────────────────────── */
-  .project {
-    @apply flex flex-col h-full overflow-hidden;
-    @apply rounded-2xl border border-solid border-border bg-surface;    
-    /* Pivote en la base: las tarjetas abren en abanico desde abajo. */
-  
-    transform-origin: 50% 100%;    
-  }
-
-  @supports (animation-timeline: view()) {
-    .project {
-      /* Longhands: con el shorthand `animation:` el compilador
-         descarta `animation-timeline`. */
-      animation-name: project-arc;
-      animation-fill-mode: both;
-      animation-timing-function: linear;
-      animation-timeline: view(inline);
-      animation-range: cover 0% cover 100%;
-    }
-  }
-
-  /* La caída sigue una parábola (0 → 13 → 44px) en vez de una recta:
-     es lo que hace que se lea como un arco y no como un pico. */
-  @keyframes project-arc {
-    0% {
-      rotate: 9deg;
-      translate: 0 44px;
-    }
-    25% {
-      rotate: 4.5deg;
-      translate: 0 13px;
-    }
-    50% {
-      rotate: 0deg;
-      translate: 0 0;
-    }
-    75% {
-      rotate: -4.5deg;
-      translate: 0 13px;
-    }
-    100% {
-      rotate: -9deg;
-      translate: 0 44px;
-    }
-  }
-
-  /* ── Tarjeta ───────────────────────────────────────────────── */
-  .project__preview {
-    @apply h-40 w-full shrink-0;
-    background-image: linear-gradient(
-      140deg,
-      var(--color-primary-100),
-      var(--color-accent-100)
-    );
-  }
-  .project__body {
-    @apply flex flex-col items-start gap-2 p-4;
-  }
-  .project__title {
-    @apply text-lg font-bold text-ink;
-  }
-  .project__description {
-    @apply text-sm text-ink-muted;
-  }
-  .project__link {
-    @apply inline-flex items-center gap-1 mt-2;
-    @apply text-sm text-ink;
-    @apply hover:text-brand;
-  }
-
-  /* ── Controles ─────────────────────────────────────────────── */
-  .projects__controls {
-    @apply flex items-center justify-center gap-3;
-  }
-  .projects__control {
-    @apply flex items-center justify-center size-10;
-    @apply rounded-full border border-solid border-border;
-    @apply text-ink cursor-pointer;
-    @apply hover:border-brand hover:text-brand;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .projects__viewport {
-      scroll-behavior: auto;
-    }
-    .project {
-      animation: none;
-    }
-    .projects[data-reveal="pending"] .projects__slide {
-      opacity: 1;
-    }
-    .projects[data-reveal="shown"] .projects__slide {
-      animation: none;
-    }
-  }
 </style>
-
-<script>
-  const section = document.querySelector<HTMLElement>(".projects");
-  const viewport = document.querySelector<HTMLElement>(".projects__viewport");
-  const controls = document.querySelectorAll<HTMLButtonElement>(
-    "[data-scroll-direction]",
-  );
-
-  if (section && viewport) {
-    // Ocultar cuanto antes, para que el escalonado no se pierda.
-    section.dataset.reveal = "pending";
-
-    const slides = Array.from(
-      viewport.querySelectorAll<HTMLElement>(".projects__slide"),
-    );
-    const gap = 24;
-
-    // Arrancar centrado en la tarjeta del medio, sin animar el salto.
-    const middle = slides[Math.floor(slides.length / 2)];
-
-    if (middle) {
-      viewport.scrollTo({
-        left: middle.offsetLeft - (viewport.clientWidth - middle.offsetWidth) / 2,
-        behavior: "instant",
-      });
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry], obs) => {
-        if (!entry.isIntersecting) return;
-
-        section.dataset.reveal = "shown";
-        obs.disconnect();
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(section);
-
-    controls.forEach((control) => {
-      control.addEventListener("click", () => {
-        const step = slides[0] ? slides[0].getBoundingClientRect().width + gap : 300;
-        const direction = Number(control.dataset.scrollDirection);
-
-        viewport.scrollBy({ left: step * direction });
-      });
-    });
-  }
-</script>

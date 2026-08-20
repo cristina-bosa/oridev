@@ -1,0 +1,149 @@
+@reference "@/styles/global.css";
+
+/* ── Carrusel ──────────────────────────────────────────────── */
+.projects__viewport {
+  /* Sangrado a ancho completo: se escapa del `container` de .main
+     estirándose a 100vw y compensando con márgenes negativos. */
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow-x: auto;
+  /* `hidden` evita una barra vertical parásita: el arco sobresale
+     en vertical y el padding le deja sitio de sobra. */
+  overflow-y: hidden;
+  padding-block: 5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.projects__viewport::-webkit-scrollbar {
+  display: none;
+}
+.projects__track {
+  @apply flex gap-6;
+  width: max-content;
+  /* Deja que la primera y la última tarjeta puedan quedar centradas. */
+  padding-inline: max(1rem, calc(50% - 9rem));
+}
+.projects__slide {
+  @apply shrink-0 w-72;
+  scroll-snap-align: center;
+}
+
+/* La clase la pone React al montar. Sin hidratación no existe y las
+   tarjetas se ven con normalidad. */
+.projects__carousel.is-entered .projects__slide {
+  animation: project-enter 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  animation-delay: calc(var(--index, 0) * 90ms);
+}
+
+@keyframes project-enter {
+  from {
+    opacity: 0;
+    translate: 0 32px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.project {
+  @apply flex flex-col justify-start h-full overflow-hidden;
+  @apply border border-solid border-border bg-surface;
+  transform-origin: 50% 100%;
+  @apply hover:border-brand hover:shadow-lg hover:scale-105 hover:cursor-pointer;
+}
+
+@supports (animation-timeline: view()) {
+  .project {
+    animation-name: project-arc;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-timeline: view(inline);
+    animation-range: cover 0% cover 100%;
+  }
+}
+
+@keyframes project-arc {
+  0% {
+    rotate: 9deg;
+    translate: 0 48px;
+  }
+  12.5% {
+    rotate: 6.75deg;
+    translate: 0 27px;
+  }
+  25% {
+    rotate: 4.5deg;
+    translate: 0 12px;
+  }
+  37.5% {
+    rotate: 2.25deg;
+    translate: 0 3px;
+  }
+  50% {
+    rotate: 0deg;
+    translate: 0 0;
+  }
+  62.5% {
+    rotate: -2.25deg;
+    translate: 0 3px;
+  }
+  75% {
+    rotate: -4.5deg;
+    translate: 0 12px;
+  }
+  87.5% {
+    rotate: -6.75deg;
+    translate: 0 27px;
+  }
+  100% {
+    rotate: -9deg;
+    translate: 0 48px;
+  }
+}
+
+/* ── Tarjeta ───────────────────────────────────────────────── */
+.project__preview {
+  @apply h-1 w-full shrink-0;
+  background-image: linear-gradient(
+    140deg,
+    var(--color-primary-100),
+    var(--color-accent-100)
+  );
+}
+.project__personal {
+  @apply top-1 left-1 px-2 py-1 text-xs text-black;
+}
+.project__body {
+  @apply flex flex-col items-start gap-2 p-4;
+}
+.project__title {
+  @apply text-lg font-bold text-ink;
+}
+.project__description {
+  @apply text-sm text-ink-muted;
+}
+.project__tags {
+  @apply flex flex-wrap gap-2 mt-2;
+}
+.project__tag {
+  @apply inline-block px-2 py-1 text-sm bg-accent-100 text-black;
+}
+.project__link {
+  @apply inline-flex items-center gap-1 mt-2;
+  @apply text-sm text-ink;
+  @apply hover:text-brand;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects__viewport {
+    scroll-behavior: auto;
+  }
+  .project {
+    animation: none;
+  }
+  .projects__carousel.is-entered .projects__slide {
+    animation: none;
+  }
+}

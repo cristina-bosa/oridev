@@ -1,0 +1,38 @@
+@reference "@/styles/global.css";
+
+.dialog {
+  /* Con showModal() el navegador ya lo centra; el overlay lo pinta
+     ::backdrop, así que el <dialog> solo ocupa su contenido. */
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.5);
+}
+.dialog__content {
+  @apply relative flex flex-col items-start gap-4 p-8;
+  @apply border border-solid border-border bg-background;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  /* Si el contenido crece, scrollea dentro sin encadenar a la página. */
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.dialog__close {
+  @apply absolute top-4 right-4 cursor-pointer;
+  @apply text-ink hover:text-brand;
+}
+.dialog__title {
+  @apply text-2xl font-bold text-ink pr-8;
+}
+.dialog__description {
+  @apply text-ink-muted;
+}
+.dialog__link {
+  @apply inline-flex items-center gap-1 text-ink hover:text-brand;
+}

@@ -1,25 +1,19 @@
 ---
-import { Moon, Sun } from "@lucide/astro";
+import ThemeToggle from "@/components/react/ThemeToggle.tsx";
 ---
 <header class="header">
   <nav class="nav">
     <div class="nav__brand">
-      <p>oridev</p>
+      <a href="/">oriclux</a>
     </div>
 
     <ul class="nav__menu">
-      <li class="nav__menu__item"><a href="#about-me">About me</a></li>
+      <li class="nav__menu__item"><a href="#projects">Projects</a></li>
+      <li class="nav__menu__item"><a href="#experience">Experience</a></li>
       <li class="nav__menu__item"><a href="#skills">Skills</a></li>
-      <li class="nav__menu__item"><a href="/projects">Projects</a></li>
-      <li class="nav__menu__item"><a href="#experiences">Experiences</a></li>
-      <li class="nav__menu__item"><a href="#education">Education</a></li>
+      <li class="nav__menu__item"><a href="#contact">Contact</a></li>
+      <li><ThemeToggle client:load /></li>
     </ul>
-
-    <button type="button" class="theme-toggle" aria-pressed="false">
-      <Moon class="dark:hidden" size={18} stroke-width={1.5} aria-hidden="true" />
-      <Sun class="hidden dark:block" size={18} stroke-width={1.5} aria-hidden="true" />
-      <span class="sr-only">Dark mode</span>
-    </button>
   </nav>
 </header>
 
@@ -42,7 +36,7 @@ import { Moon, Sun } from "@lucide/astro";
     }
   }
   .nav {
-    @apply flex justify-between items-center w-full px-8;
+    @apply flex justify-between items-center w-full;
     @apply container mx-auto;
   }
   .nav__brand {
@@ -50,16 +44,11 @@ import { Moon, Sun } from "@lucide/astro";
   }
   .nav__menu {
     @apply flex gap-4;
+    align-items: center;
   }
   .nav__menu__item {
     @apply text-ink;
     @apply hover:text-brand;
-  }
-  .theme-toggle {
-    @apply flex items-center justify-center size-9 shrink-0;
-    @apply rounded-full border border-solid border-border;
-    @apply text-ink cursor-pointer;
-    @apply hover:border-brand hover:text-brand;
   }
     @keyframes header-blur {
     from {
@@ -72,31 +61,3 @@ import { Moon, Sun } from "@lucide/astro";
     }
   }
 </style>
-
-<script>
-  const toggle = document.querySelector<HTMLButtonElement>(".theme-toggle");
-
-  if (toggle) {
-    const root = document.documentElement;
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-    // Sin atributo el tema lo decide el sistema, así que hay que resolverlo.
-    const resolved = () =>
-      root.dataset.theme ?? (systemDark.matches ? "dark" : "light");
-
-    const sync = () =>
-      toggle.setAttribute("aria-pressed", String(resolved() === "dark"));
-
-    sync();
-    // Mientras no haya elección manual, seguir al sistema si cambia.
-    systemDark.addEventListener("change", sync);
-
-    toggle.addEventListener("click", () => {
-      const next = resolved() === "dark" ? "light" : "dark";
-
-      root.dataset.theme = next;
-      localStorage.setItem("theme", next);
-      sync();
-    });
-  }
-</script>
