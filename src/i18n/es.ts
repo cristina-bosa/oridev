@@ -129,7 +129,7 @@ export const es: Translation = {
   education: {
     title: "Educación",
     description:
-      "A lo largo de mi formación académica he adquirido conocimientos y habilidades en diversas áreas del diseño y desarrollo web. A continuación, se presenta un resumen de mi educación.",
+      "A lo largo de mi formación académica he adquirido conocimientos y habilidades en diversas áreas del diseño y desarrollo web.",
     degrees: {
       "master-web": "Máster de Desarrollo Web y Aplicaciones",
       "grado-diseno": "Grado de Diseño y Creación Digital",
