@@ -1,15 +1,16 @@
 import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { Link, X } from "lucide-react";
 
 import type { Project } from "./ProjectsCarousel";
 import "./dialog.css";
 
 interface Props {
   project: Project;
+  closeLabel: string;
   closeModal: () => void;
 }
 
-export default function Dialog({ project, closeModal }: Props) {
+export default function Dialog({ project, closeLabel, closeModal }: Props) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -41,26 +42,47 @@ export default function Dialog({ project, closeModal }: Props) {
       }}
     >
       <div className="dialog__content">
-        <button
-          type="button"
-          className="dialog__close"
-          onClick={closeModal}
-        >
+        <button type="button" className="dialog__close" onClick={closeModal}>
           <X size={24} aria-hidden="true" />
-          <span className="sr-only">Close dialog</span>
+          <span className="sr-only">{closeLabel}</span>
         </button>
         <h2 id="dialog-title" className="dialog__title">
           {project.title}
         </h2>
         <p className="dialog__description">{project.description}</p>
-        <a
-          href={project.link}
-          className="dialog__link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Acceder
-        </a>
+        {project.url_playstore && (
+          <a
+            href={project.url_playstore}
+            className="dialog__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Link size={16} aria-hidden="true" />
+            Play Store
+          </a>
+        )}
+        {project.url_applestore && (
+          <a
+            href={project.url_applestore}
+            className="dialog__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Link size={16} aria-hidden="true" />
+            App Store
+          </a>
+        )}
+        {project.link && (
+          <a
+            href={project.link}
+            className="dialog__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Link size={16} aria-hidden="true" />
+            {project.title_link || "Web"}
+          </a>
+        )}
       </div>
     </dialog>
   );

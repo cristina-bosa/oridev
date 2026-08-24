@@ -1,0 +1,63 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { getLang, languages, useTranslations } from "@/i18n";
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
+/* Se quita el prefijo de idioma para reconstruir la MISMA ruta en el otro
+   idioma. Con una sola página da igual, pero así el selector sigue siendo
+   correcto en cuanto se añada /es/blog, /en/blog, etc. */
+const path = Astro.url.pathname.replace(/^\/(es|en)(?=\/|$)/, "") || "/";
+
+const options = (Object.keys(languages) as (keyof typeof languages)[]).map(
+  (code) => ({
+    code,
+    label: languages[code],
+    href: getRelativeLocaleUrl(code, path),
+    current: code === lang,
+  }),
+);
+---
+
+<div class="lang" role="group" aria-label={t.common.languageLabel}>
+  {
+    options.map(({ code, label, href, current }) => (
+      <a
+        class="lang__option"
+        href={href}
+        hreflang={code}
+        lang={code}
+        aria-current={current ? "true" : undefined}
+      >
+        <span aria-hidden="true">{code.toUpperCase()}</span>
+        <span class="sr-only">{label}</span>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  @reference "@/styles/global.css";
+
+  .lang {
+    @apply flex items-center gap-1;
+    @apply rounded-full border border-solid border-border p-0.5;
+  }
+  .lang__option {
+    @apply flex h-8 items-center justify-center rounded-full px-2.5;
+    @apply text-xs font-bold uppercase text-ink-muted;
+    @apply transition-colors duration-200;
+    @apply hover:text-brand focus-visible:text-brand;
+  }
+  .lang__option[aria-current="true"] {
+    @apply bg-highlight text-ink;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lang__option {
+      transition: none;
+    }
+  }
+</style>

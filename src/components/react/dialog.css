@@ -14,7 +14,7 @@
   background-color: rgb(0 0 0 / 0.5);
 }
 .dialog__content {
-  @apply relative flex flex-col items-start gap-4 p-8;
+  @apply relative flex flex-col items-start gap-4 p-6 sm:p-8;
   @apply border border-solid border-border bg-background;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
@@ -28,11 +28,14 @@
   @apply text-ink hover:text-brand;
 }
 .dialog__title {
-  @apply text-2xl font-bold text-ink pr-8;
+  @apply text-xl sm:text-2xl font-bold text-ink pr-8;
 }
 .dialog__description {
   @apply text-ink-muted;
 }
 .dialog__link {
   @apply inline-flex items-center gap-1 text-ink hover:text-brand;
+}
+.dialog__image {
+  @apply w-full h-auto rounded-md;
 }

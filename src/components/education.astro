@@ -1,32 +1,20 @@
 ---
-const education = [
-  {
-    year: "2023 - 2024",
-    degree: "Máster de Desarrollo Web y Aplicaciones",
-    institution: "Universidad Europea de Madrid",
-  },
-  {
-    year: "2019 - 2023",
-    degree: "Grado de Diseño y Creación Digital",
-    institution: "Universitat Oberta de Catalunya",
-  },
-  {
-    year: "2017 - 2018",
-    degree: "Ciclo Superior Desarrollo Aplicaciones Web",
-    institution: "CIFP Villa de Agüimes",
-  },
+import { education as educationData } from "@/data/education";
+import { useTranslations } from "@/i18n";
 
-];
+const t = useTranslations(Astro.currentLocale);
+
+const education = educationData.map(({ id, year, institution }) => ({
+  year,
+  degree: t.education.degrees[id],
+  institution,
+}));
 ---
 
 <section id="education" class="education" aria-labelledby="education-title">
   <div class="education__intro">
-    <h2 id="education-title" class="education__title">Education</h2>
-    <p class="education__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
-      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
-      obcaecati, cumque, sint natus iste amet voluptas error?
-    </p>
+    <h2 id="education-title" class="education__title">{t.education.title}</h2>
+    <p class="education__description">{t.education.description}</p>
   </div>
 
   <div class="education__list">
@@ -53,14 +41,14 @@ const education = [
     @apply flex flex-col items-start gap-4 max-w-2xl;
   }
   .education__title {
-    @apply text-4xl font-bold text-ink;
+    @apply text-3xl sm:text-4xl font-bold text-ink;
   }
   .education__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
   }
   .education__list {
     @apply grid grid-cols-1 gap-8;
-    @apply md:grid-cols-3;
+    @apply sm:grid-cols-2 md:grid-cols-3;
     @apply mt-8;
   }
   .education__group {
@@ -70,7 +58,7 @@ const education = [
   .education__group-title {
     @apply text-sm font-bold uppercase text-brand;
   }
-  .education__group-description  {
+  .education__group-description {
     @apply font-bold text-lg text-ink;
   }
 </style>

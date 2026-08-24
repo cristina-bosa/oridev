@@ -1,47 +1,14 @@
 ---
-const skillGroups = [
-  {
-    title: "Front-end",
-    skills: [
-      "React",
-      "Next.js",
-      "Astro",
-      "TailwindCSS",
-      "TypeScript",
-      "Motion",
-      "HTML & CSS",
-      "Architecture: Atomic Design, Component Driven Development",
-    ],
-  },
-  {
-    title: "Design & UX/UI",
-    skills: [
-      "Figma",
-      "Design tokens",
-      "Prototyping",
-      "WCAG / Accessibility (a11y)",
-      "Typography",      
-      "Affinity",
-    ],
-  },
-  {
-    title: "Tooling",
-    skills: ["Git & GitHub", "Storybook", "CI/CD", "Vercel", "Docker"],
-  },
-];
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <section id="about-me" class="about-me" aria-labelledby="about-me-title">
   <div class="about-me__intro">
-    <h2 id="about-me-title" class="about-me__title">About me</h2>
-    <p class="about-me__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
-      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
-      obcaecati, cumque, sint natus iste amet voluptas error?
-    </p>
+    <h2 id="about-me-title" class="about-me__title">{t.aboutMe.title}</h2>
+    <p class="about-me__description">{t.aboutMe.description}</p>
   </div>
-
-
 </section>
 
 <style>
@@ -55,10 +22,9 @@ const skillGroups = [
     @apply flex flex-col items-start gap-4 max-w-2xl;
   }
   .about-me__title {
-    @apply text-4xl font-bold text-ink;
+    @apply text-3xl sm:text-4xl font-bold text-ink;
   }
   .about-me__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
   }
- 
 </style>

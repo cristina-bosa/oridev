@@ -10,13 +10,19 @@
   /* `hidden` evita una barra vertical parásita: el arco sobresale
      en vertical y el padding le deja sitio de sobra. */
   overflow-y: hidden;
-  padding-block: 5rem;
+  padding-block: 3rem;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
 }
 .projects__viewport::-webkit-scrollbar {
   display: none;
+}
+
+@media (width >= 48rem) {
+  .projects__viewport {
+    padding-block: 5rem;
+  }
 }
 .projects__track {
   @apply flex gap-6;
@@ -113,7 +119,7 @@
   );
 }
 .project__personal {
-  @apply top-1 left-1 px-2 py-1 text-xs text-black;
+  @apply top-1 left-1 px-2 py-1 text-xs text-ink;
 }
 .project__body {
   @apply flex flex-col items-start gap-2 p-4;

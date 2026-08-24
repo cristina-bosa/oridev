@@ -1,53 +1,21 @@
 ---
-const skillGroups = [
-  {
-    title: "Front-end",
-    skills: [
-      "React",
-      "Next.js",
-      "Astro",
-      "TailwindCSS",
-      "TypeScript",
-      "Motion",
-      "HTML & CSS",
-      "Architecture: Atomic Design, Component Driven Development",
-    ],
-  },
-  {
-    title: "Design & UX/UI",
-    skills: [
-      "Figma",
-      "Design tokens",
-      "Prototyping",
-      "WCAG / Accessibility (a11y)",
-      "Typography",      
-      "Affinity",
-    ],
-  },
-  {
-    title: "Tooling",
-    skills: ["Git & GitHub", "Storybook", "CI/CD", "Vercel", "Docker"],
-  },
-];
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <section id="skills" class="skills" aria-labelledby="skills-title">
   <div class="skills__intro">
-    <h2 id="skills-title" class="skills__title">Skills</h2>
-    <p class="skills__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
-      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
-      obcaecati, cumque, sint natus iste amet voluptas error?
-    </p>
+    <h2 id="skills-title" class="skills__title">{t.skills.title}</h2>
   </div>
 
   <div class="skills__list">
     {
-      skillGroups.map(({ title, skills }) => (
+      t.skills.groups.map(({ title, items }) => (
         <div class="skills__group">
           <h3 class="skills__group-title">{title}</h3>
           <ul class="skills__group-items">
-            {skills.map((skill) => (
+            {items.map((skill) => (
               <li class="skills__item">{skill}</li>
             ))}
           </ul>
@@ -68,14 +36,14 @@ const skillGroups = [
     @apply flex flex-col items-start gap-4 max-w-2xl;
   }
   .skills__title {
-    @apply text-4xl font-bold text-ink;
+    @apply text-3xl sm:text-4xl font-bold text-ink;
   }
   .skills__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
   }
   .skills__list {
     @apply grid grid-cols-1 gap-8;
-    @apply md:grid-cols-3;
+    @apply sm:grid-cols-2 md:grid-cols-3;
     @apply mt-8;
   }
   .skills__group {

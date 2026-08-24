@@ -1,6 +1,10 @@
 ---
 import { ArrowUpRight, Mail } from "@lucide/astro";
 
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
+
 const email = "cristinabosasanchez@gmail.com";
 
 const channels = [
@@ -30,10 +34,8 @@ const channels = [
 
 <section id="contact" class="contact" aria-labelledby="contact-title">
   <div class="contact__intro">
-    <h2 id="contact-title" class="contact__title">Contact</h2>
-    <p class="contact__description">
-      The fastest way to reach me is email, and my full CV lives on LinkedIn.
-    </p>
+    <h2 id="contact-title" class="contact__title">{t.contact.title}</h2>
+    <p class="contact__description">{t.contact.description}</p>
   </div>
 
   <ul class="contact__list">
@@ -47,7 +49,12 @@ const channels = [
               ? { target: "_blank", rel: "me noopener noreferrer" }
               : {})}
           >
-            <Icon class="contact__icon" size={18} stroke-width={1.5} aria-hidden="true" />
+            <Icon
+              class="contact__icon"
+              size={18}
+              stroke-width={1.5}
+              aria-hidden="true"
+            />
             <span class="contact__label">{label}</span>
             <span class="contact__value">{value}</span>
           </a>
@@ -68,10 +75,10 @@ const channels = [
     @apply flex flex-col items-start gap-4 max-w-2xl;
   }
   .contact__title {
-    @apply text-4xl font-bold text-ink;
+    @apply text-3xl sm:text-4xl font-bold text-ink;
   }
   .contact__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
   }
   .contact__list {
     @apply flex flex-col;
@@ -80,19 +87,34 @@ const channels = [
     @apply border-b border-solid border-ink;
   }
   .contact__link {
-    @apply flex flex-row items-center gap-4 py-4;
+    @apply grid items-center gap-x-4 gap-y-1 py-4;
     @apply text-ink;
     @apply transition-colors duration-200;
     @apply hover:text-brand focus-visible:text-brand;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "icon label"
+      "icon value";
+  }
+
+  @media (width >= 48rem) {
+    .contact__link {
+      grid-template-columns: auto 8rem minmax(0, 1fr);
+      grid-template-areas: "icon label value";
+    }
   }
   .contact__icon {
     @apply shrink-0;
+    grid-area: icon;
   }
   .contact__label {
-    @apply w-32 shrink-0 text-sm;
+    @apply text-sm;
+    grid-area: label;
   }
   .contact__value {
-    @apply text-lg font-bold;
+    @apply text-base sm:text-lg font-bold;
+    grid-area: value;
+    overflow-wrap: anywhere;
   }
 
   @media (prefers-reduced-motion: reduce) {

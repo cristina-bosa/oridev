@@ -1,32 +1,36 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { getLang } from "@/i18n";
+
+const lang = getLang(Astro.currentLocale);
+const home = getRelativeLocaleUrl(lang, "/");
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
   <div class="footer__content">
-    <a class="footer__brand" href="/">oriclux</a>
+    <a class="footer__brand" href={home}>oriclux</a>
     <p class="footer__year">{year}</p>
   </div>
-  
 </footer>
 
 <style>
   @reference "@/styles/global.css";
   .footer {
-    @apply flex justify-between items-center w-full h-16 px-8;
+    @apply flex justify-between items-center w-full h-16;
     @apply border-t border-solid border-rule;
     @apply mt-12;
-    
   }
-  .footer__content{
+  .footer__content {
     @apply flex justify-between items-center w-full h-16;
     @apply container mx-auto;
+    @apply px-5 md:px-20;
   }
-  .footer__brand{
+  .footer__brand {
     @apply font-bold text-ink;
-
   }
-  .footer__year{
+  .footer__year {
     @apply text-ink;
   }
 </style>

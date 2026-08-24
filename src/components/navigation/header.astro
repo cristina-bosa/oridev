@@ -1,21 +1,97 @@
 ---
+import { Menu, X } from "@lucide/astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import LanguageSwitcher from "@/components/navigation/language-switcher.astro";
 import ThemeToggle from "@/components/react/ThemeToggle.tsx";
+import { getLang, useTranslations } from "@/i18n";
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
+const home = getRelativeLocaleUrl(lang, "/");
+
+const links = [
+  { href: "#projects", label: t.nav.projects },
+  { href: "#experience", label: t.nav.experience },
+  { href: "#skills", label: t.nav.skills },
+  { href: "#contact", label: t.nav.contact },
+];
 ---
+
 <header class="header">
-  <nav class="nav">
+  <nav class="nav" aria-label={t.nav.label}>
     <div class="nav__brand">
-      <a href="/">oriclux</a>
+      <a href={home}>oriclux</a>
     </div>
 
     <ul class="nav__menu">
-      <li class="nav__menu__item"><a href="#projects">Projects</a></li>
-      <li class="nav__menu__item"><a href="#experience">Experience</a></li>
-      <li class="nav__menu__item"><a href="#skills">Skills</a></li>
-      <li class="nav__menu__item"><a href="#contact">Contact</a></li>
-      <li><ThemeToggle client:load /></li>
+      {
+        links.map(({ href, label }) => (
+          <li class="nav__menu__item">
+            <a href={href}>{label}</a>
+          </li>
+        ))
+      }
     </ul>
+
+    <div class="nav__tools">
+      <LanguageSwitcher />
+      <ThemeToggle
+        labels={{
+          toDark: t.common.themeToDark,
+          toLight: t.common.themeToLight,
+        }}
+        client:load
+      />
+
+      {
+        /* `details` en vez de un botón con JS: el desplegable abre y cierra
+          sin hidratar nada y ya anuncia su estado a los lectores. */
+      }
+      <details class="nav__mobile">
+        <summary class="nav__burger" aria-label={t.common.menuLabel}>
+          <Menu
+            class="nav__burger-icon nav__burger-icon--open"
+            size={20}
+            stroke-width={1.5}
+            aria-hidden="true"
+          />
+          <X
+            class="nav__burger-icon nav__burger-icon--close"
+            size={20}
+            stroke-width={1.5}
+            aria-hidden="true"
+          />
+        </summary>
+
+        <ul class="nav__panel">
+          {
+            links.map(({ href, label }) => (
+              <li class="nav__panel__item">
+                <a href={href}>{label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+    </div>
   </nav>
 </header>
+
+<script>
+  /* El navegador no cierra el `details` al saltar a un ancla de la misma
+     página, así que el panel se quedaría abierto tapando la sección. */
+  const menu = document.querySelector<HTMLDetailsElement>(".nav__mobile");
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => menu.removeAttribute("open"));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") menu?.removeAttribute("open");
+  });
+</script>
 
 <style>
   @reference "@/styles/global.css";
@@ -27,7 +103,6 @@ import ThemeToggle from "@/components/react/ThemeToggle.tsx";
 
   @supports (animation-timeline: scroll()) {
     .header {
-    
       animation-name: header-blur;
       animation-fill-mode: both;
       animation-timing-function: linear;
@@ -35,28 +110,74 @@ import ThemeToggle from "@/components/react/ThemeToggle.tsx";
       animation-range: 0 80px;
     }
   }
+  /* Mismo padding que `.main` para que marca y menú queden alineados con
+     el contenido y por dentro de los filetes del body. */
   .nav {
     @apply flex justify-between items-center w-full;
     @apply container mx-auto;
+    @apply px-5 md:px-20;
   }
   .nav__brand {
     @apply font-bold text-ink;
   }
+  .nav__tools {
+    @apply flex items-center gap-2;
+  }
+
+  /* ── Menú de escritorio ──────────────────────────────────── */
   .nav__menu {
-    @apply flex gap-4;
-    align-items: center;
+    @apply hidden md:flex md:items-center gap-4;
+    @apply ml-auto mr-4;
   }
   .nav__menu__item {
     @apply text-ink;
     @apply hover:text-brand;
   }
-    @keyframes header-blur {
+
+  /* ── Menú móvil ──────────────────────────────────────────── */
+  .nav__mobile {
+    @apply md:hidden;
+  }
+  .nav__burger {
+    @apply flex size-9 shrink-0 cursor-pointer items-center justify-center;
+    @apply rounded-full border border-solid border-border text-ink;
+    @apply hover:border-brand hover:text-brand;
+    list-style: none;
+  }
+  .nav__burger::-webkit-details-marker {
+    display: none;
+  }
+  .nav__mobile:not([open]) .nav__burger-icon--close,
+  .nav__mobile[open] .nav__burger-icon--open {
+    display: none;
+  }
+
+  /* Se ancla al `.header`, que al ser sticky ya es bloque contenedor. */
+  .nav__panel {
+    @apply absolute left-0 right-0 top-full;
+    @apply flex flex-col;
+    @apply border-b border-solid border-rule bg-background;
+    @apply px-5 py-2;
+  }
+  .nav__panel__item a {
+    @apply block py-3 text-ink;
+    @apply hover:text-brand;
+  }
+  .nav__panel__item + .nav__panel__item {
+    @apply border-t border-solid border-border;
+  }
+
+  @keyframes header-blur {
     from {
       background-color: transparent;
       backdrop-filter: blur(0px);
     }
     to {
-      background-color: color-mix(in oklab, var(--ui-background) 20%, transparent);
+      background-color: color-mix(
+        in oklab,
+        var(--ui-background) 20%,
+        transparent
+      );
       backdrop-filter: blur(12px);
     }
   }

@@ -1,41 +1,32 @@
 ---
-import { ExternalLink } from "@lucide/astro";
+import { ArrowUpRight } from "@lucide/astro";
+
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
 
 const socials = [
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/cristina-bosa/",
-    icon: ExternalLink,
+    icon: ArrowUpRight,
   },
   {
     name: "GitHub",
     url: "https://github.com/cristina-bosa",
-    icon: ExternalLink,
+    icon: ArrowUpRight,
   },
-];
-
-const details = [
-  { term: "Time zone", value: "Canary Islands" },
-  { term: "Location", value: "Las Palmas" },
-  { term: "Experience", value: "8+ years" },
-  { term: "Languages", value: "Spanish and English" },
-  { term: "Role", value: "Front-end tech lead & UX/UI designer" },
-  { term: "Skills", value: "Design, code, accessibility" },
 ];
 ---
 
 <section class="hero">
   <div class="hero__content">
-    <h1 class="hero__title">Front-end developer & UI/UX designer</h1>
-    <p class="hero__description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto,
-      doloremque! Necessitatibus amet quas corporis id et ut similique nemo, non
-      incidunt tempore pariatur dolorum nisi? Tenetur saepe quisquam minima et.
-    </p>
+    <h1 class="hero__title">Cristina Bosa</h1>
+    <p class="hero__description">{t.hero.description}</p>
   </div>
   <div class="hero__info">
     <div class="hero__actions">
-      <p class="hero__availability">Available for new projects</p>
+      <p class="hero__availability">{t.hero.availability}</p>
       <div class="hero__links">
         {
           socials.map((social) => (
@@ -46,6 +37,7 @@ const details = [
               aria-label={social.name}
             >
               <social.icon stroke-width={1.5} aria-hidden="true" />
+              {social.name}
             </a>
           ))
         }
@@ -53,7 +45,7 @@ const details = [
     </div>
     <dl class="hero__personal">
       {
-        details.map(({ term, value }) => (
+        t.hero.details.map(({ term, value }) => (
           <Fragment>
             <dt class="hero__personal__term">{term}</dt>
             <dd class="hero__personal__value">{value}</dd>
@@ -68,41 +60,44 @@ const details = [
   @reference "@/styles/global.css";
 
   .hero {
-    @apply flex flex-col items-start justify-around w-full h-screen;
+    @apply flex flex-col items-start w-full;
+    @apply min-h-screen justify-start gap-12 pt-24 pb-16;
+    @apply md:justify-around md:gap-0 md:py-0;
     @apply relative;
   }
-  .hero::before{
+  .hero::before {
     @apply content-[''];
-    @apply absolute w-128.25 h-128.25;
+    @apply absolute w-128.25 h-128.25 max-w-full;
     @apply bg-accent-200;
     @apply rounded-full;
     top: 0;
     right: 0;
     filter: blur(900px);
   }
-    
+
   .hero__content {
     @apply flex flex-col items-start justify-center w-full max-w-2xl gap-4;
   }
   .hero__title {
-    @apply text-5xl font-bold text-ink;
+    @apply text-4xl sm:text-5xl font-black text-ink;
     @apply text-left;
     @apply max-w-2xl;
   }
   .hero__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
     @apply text-left;
     @apply max-w-2xl;
   }
   .hero__info {
-    @apply flex flex-row items-start justify-between w-full;
+    @apply flex flex-col items-start justify-between w-full gap-10;
+    @apply md:flex-row md:gap-6;
   }
   .hero__actions {
-    @apply flex flex-col items-start justify-between w-full max-w-2xl;
-    @apply mt-4;
+    @apply flex flex-col items-start justify-between w-full max-w-2xl gap-6;
+    @apply mt-4 md:gap-0;
   }
   .hero__links {
-    @apply flex items-center justify-start gap-4;
+    @apply flex flex-wrap items-center justify-start gap-4;
   }
   .hero__links a {
     @apply text-ink;
@@ -142,8 +137,8 @@ const details = [
   }
 
   .hero__personal {
-    @apply grid gap-x-6 gap-y-2;
-    grid-template-columns: auto auto;
+    @apply grid gap-x-4 gap-y-2 md:gap-x-6;
+    grid-template-columns: auto minmax(0, 1fr);
   }
   .hero__personal__term {
     @apply text-right uppercase text-sm text-ink font-bold;

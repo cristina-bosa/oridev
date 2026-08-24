@@ -2,64 +2,36 @@
 import ProjectsCarousel, {
   type Project,
 } from "@/components/react/ProjectsCarousel.tsx";
+import { projects as projectsData } from "@/data/projects";
+import { useTranslations } from "@/i18n";
 
-const projects: Project[] = [
-  {
-    title: "NRG Consulting",
-    tags: ["Develop", "UX/UI", "Design system"],
-    description:
-      "Página web corporativa de la empresa.",
-    link: "https://www.nrgconsulting.com/",
-    personal: false,
-  },
-  {
-    title: "Seroil Gas Ahorro",
-    tags: ["UX/UI", "Design system"],
-    description:
-      "Plataforma web que proporciona a los clientes la posibilidad de comparar sus facturas de gas con las ofertas disponibles de la distribuidora.",
-    link: "https://seroilgasahorro.com/en",
-    personal: false,
-  },
-    {
-    title: "CAES",
-    tags: ["Develop", "UX/UI"],
-    description:
-      "Plataforma web que permite la gestión de solicitudes para beneficiarios como intermediarios de Certificados de Ahorro de Energía (CAES) proporcionado por el MITECO.",
-    link: "https://caes.digital/es",
-    personal: false,
-  },
-  {
-    title: "Triggers",
-    tags: ["Develop", "UX/UI"],
-    description:
-      "Triggers es una aplicación multiplataforma que sirve para visualizar indicadores generados a partir de distintas commodities en tiempo real.",
-    link: "#",
-    personal: false,
-  },
-    {
-    title: "Libri",
-    tags: ["Develop", "UX/UI", "Design system"],
-    description:
-      "PWA que permite al usuario crear y gestionar su biblioteca personal.",
-    link: "#",
-    personal: true,
-  },
-];
+const t = useTranslations(Astro.currentLocale);
+
+const projects: Project[] = projectsData.map((project) => ({
+  title: project.title,
+  tags: project.tags.map((tag) => t.projects.tags[tag]),
+  summary: t.projects.items[project.id].summary,
+  description: t.projects.items[project.id].description,
+  link: project.link,
+  personal: project.personal,
+  url_playstore: project.url_playstore,
+  url_applestore: project.url_applestore,
+}));
+
+const labels = {
+  carousel: t.projects.carouselLabel,
+  personal: t.projects.personalBadge,
+  closeDialog: t.projects.closeDialog,
+};
 ---
 
 <section id="projects" class="projects" aria-labelledby="projects-title">
   <div class="projects__intro">
-    <h2 id="projects-title" class="projects__title">Projects</h2>
-    <p class="projects__description">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Harum qui, eos
-      eius iusto unde quis deleniti soluta impedit corrupti non magni voluptatem
-      obcaecati, cumque, sint natus iste amet voluptas error?
-    </p>
+    <h2 id="projects-title" class="projects__title">{t.projects.title}</h2>
+    <p class="projects__description">{t.projects.description}</p>
   </div>
 
-  {/* `client:visible` hidrata al acercarse a pantalla: el runtime de React
-      no se descarga mientras el carrusel esté lejos. */}
-  <ProjectsCarousel projects={projects} client:visible />
+  <ProjectsCarousel projects={projects} labels={labels} client:visible />
 </section>
 
 <style>
@@ -73,9 +45,9 @@ const projects: Project[] = [
     @apply flex flex-col items-start gap-4 max-w-2xl;
   }
   .projects__title {
-    @apply text-4xl font-bold text-ink;
+    @apply text-3xl sm:text-4xl font-bold text-ink;
   }
   .projects__description {
-    @apply text-lg text-ink;
+    @apply text-base sm:text-lg text-ink;
   }
 </style>

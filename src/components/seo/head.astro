@@ -1,5 +1,24 @@
 ---
 import { Font } from "astro:assets";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+import { getLang, languages, useTranslations, type Lang } from "@/i18n";
+
+const lang = getLang(Astro.currentLocale);
+const t = useTranslations(lang);
+
+/* Misma ruta sin prefijo de idioma -> una alternativa por idioma.
+   Si algún día se define `site` en astro.config, los href pasan a
+   absolutos solos, que es lo que prefieren los buscadores. */
+const path = Astro.url.pathname.replace(/^\/(es|en)(?=\/|$)/, "") || "/";
+
+const alternates = (Object.keys(languages) as Lang[]).map((code) => {
+  const href = getRelativeLocaleUrl(code, path);
+
+  return { code, href: Astro.site ? new URL(href, Astro.site).href : href };
+});
+
+const xDefault = alternates.find(({ code }) => code === "es")!;
 ---
 
 <head>
@@ -8,12 +27,23 @@ import { Font } from "astro:assets";
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
-  <title>Cristina Bosa | Portfolio</title>
+  <title>{t.seo.title}</title>
+  <meta name="description" content={t.seo.description} />
+
+  {
+    alternates.map(({ code, href }) => (
+      <link rel="alternate" hreflang={code} href={href} />
+    ))
+  }
+  <link rel="alternate" hreflang="x-default" href={xDefault.href} />
+
   <Font cssVariable="--font-funnel-display" preload />
   <Font cssVariable="--font-funnel-sans" preload />
 
-  {/* `is:inline` a propósito: Astro no lo empaqueta ni lo difiere, así que
-      corre antes del primer pintado y no se ve el destello de tema erróneo. */}
+  {
+    /* `is:inline` a propósito: Astro no lo empaqueta ni lo difiere, así que
+      corre antes del primer pintado y no se ve el destello de tema erróneo. */
+  }
   <script is:inline>
     const stored = localStorage.getItem("theme");
 

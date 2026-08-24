@@ -14,7 +14,12 @@ function resolveTheme(): Theme {
     : "light";
 }
 
-export default function ThemeToggle() {
+type Props = {
+  /* Traducidas en el servidor: la isla no tiene acceso al diccionario. */
+  labels: { toDark: string; toLight: string };
+};
+
+export default function ThemeToggle({ labels }: Props) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -50,7 +55,7 @@ export default function ThemeToggle() {
       ) : (
         <Moon size={18} strokeWidth={1.5} aria-hidden="true" />
       )}
-      <span className="sr-only">Dark mode</span>
+      <span className="sr-only">{isDark ? labels.toLight : labels.toDark}</span>
     </button>
   );
 }

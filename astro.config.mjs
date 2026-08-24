@@ -8,6 +8,16 @@ import react from "@astrojs/react";
 // https://astro.build/config
 
 export default defineConfig({
+  // `prefixDefaultLocale: false`: el español (idioma del contenido original)
+  // se sirve en `/` y el inglés en `/en/`, sin redirección extra.
+  i18n: {
+    locales: ["es", "en"],
+    defaultLocale: "es",
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   fonts: [
     {
       provider: fontProviders.local(),

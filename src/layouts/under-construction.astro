@@ -1,7 +1,10 @@
 ---
 import WrapperLayout from "./wrapper-layout.astro";
+import { useTranslations } from "@/i18n";
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
 <WrapperLayout>
-  <h1>This page is under construction</h1>
+  <h1>{t.underConstruction.title}</h1>
 </WrapperLayout>
