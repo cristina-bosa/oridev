@@ -5,8 +5,10 @@ const t = useTranslations(Astro.currentLocale);
 ---
 
 <section id="about-me" class="about-me" aria-labelledby="about-me-title">
-  <div class="about-me__intro">
-    <h2 id="about-me-title" class="about-me__title">{t.aboutMe.title}</h2>
+  <div class="about-me__intro reveal">
+    <h2 id="about-me-title" class="about-me__title section-title">
+      {t.aboutMe.title}
+    </h2>
     <p class="about-me__description">{t.aboutMe.description}</p>
   </div>
 </section>

@@ -12,15 +12,17 @@ const education = educationData.map(({ id, year, institution }) => ({
 ---
 
 <section id="education" class="education" aria-labelledby="education-title">
-  <div class="education__intro">
-    <h2 id="education-title" class="education__title">{t.education.title}</h2>
+  <div class="education__intro reveal">
+    <h2 id="education-title" class="education__title section-title">
+      {t.education.title}
+    </h2>
     <p class="education__description">{t.education.description}</p>
   </div>
 
   <div class="education__list">
     {
-      education.map(({ year, degree, institution }) => (
-        <div class="education__group">
+      education.map(({ year, degree, institution }, index) => (
+        <div class="education__group reveal" style={`--reveal-step:${index}`}>
           <span class="education__group-title">{year}</span>
           <h3 class="education__group-description">{degree}</h3>
           <small>{institution}</small>

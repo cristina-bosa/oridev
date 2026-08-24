@@ -119,3 +119,91 @@ html[data-theme="dark"] {
     font-family: var(--font-display);
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Motion compartido
+
+   Las revelaciones van con `animation-timeline: view()`: las mueve el
+   scroll, no un reloj. Así no hace falta JS ni IntersectionObserver, y
+   como cada elemento tiene su propia timeline, una lista vertical se
+   escalona sola según va entrando en pantalla.
+
+   Regla de oro aquí: el estado BASE es siempre el visible y el keyframe
+   es quien esconde. Con `animation-fill-mode: both` se mantiene el
+   fotograma inicial antes del rango, pero si el navegador no soporta
+   timelines de scroll —o el usuario pide menos movimiento— no se declara
+   ninguna animación y el contenido se ve tal cual. Al revés (base
+   invisible) un fallo de soporte dejaría la página en blanco.
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 2rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes rule-in {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* `--reveal-step` desplaza el rango para escalonar lo que entra a la
+       vez (rejillas); en listas verticales no hace falta tocarlo. */
+    .reveal {
+      animation-name: reveal-up;
+      animation-fill-mode: both;
+      animation-timing-function: ease-out;
+      animation-timeline: view();
+      animation-range: entry calc(var(--reveal-step, 0) * 12%) entry
+        calc(70% + var(--reveal-step, 0) * 12%);
+    }
+
+    .section-title::after {
+      animation-name: rule-in;
+      animation-fill-mode: both;
+      animation-timing-function: ease-out;
+      animation-timeline: view();
+      animation-range: entry 10% entry 80%;
+    }
+  }
+}
+
+/* Filete de acento bajo cada encabezado de sección. */
+.section-title {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background-color: var(--ui-rule);
+  transform-origin: left center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    /* Los enlaces del menú son anclas de la propia página. */
+    scroll-behavior: smooth;
+  }
+}
+
+/* Permite transicionar `height: auto`, que es lo que necesita el
+   desplegable de experiencia para abrirse suave. */
+:root {
+  interpolate-size: allow-keywords;
+}

@@ -15,15 +15,15 @@ const experiences = experiencesData.map(({ id, company, role, from, to }) => ({
 ---
 
 <section id="experience" class="experiences" aria-labelledby="experience-title">
-  <div class="experiences__intro">
-    <h2 id="experience-title" class="experiences__title">
+  <div class="experiences__intro reveal">
+    <h2 id="experience-title" class="experiences__title section-title">
       {t.experience.title}
     </h2>
   </div>
   <div class="experiences__list">
     {
       experiences.map((experience) => (
-        <details class="experiences__item">
+        <details class="experiences__item reveal">
           <summary class="experiences__item-summary">
             <span class="experiences__item-years">{experience.years}</span>
             <h3 class="experiences__item-title">{experience.title}</h3>
@@ -110,6 +110,30 @@ const experiences = experiencesData.map(({ id, company, role, from, to }) => ({
 
   .experiences__item-description {
     @apply px-4 pb-4 text-ink-muted py-4;
+  }
+
+  /* Apertura suave del desplegable. `::details-content` es reciente, así
+     que va tras `@supports`: donde no llegue, abre de golpe como antes.
+     El `allow-discrete` es lo que deja animar la salida en vez de que el
+     contenido desaparezca en el primer fotograma. */
+  @supports selector(::details-content) {
+    @media (prefers-reduced-motion: no-preference) {
+      .experiences__item::details-content {
+        block-size: 0;
+        overflow: hidden;
+        transition:
+          block-size 0.3s ease,
+          content-visibility 0.3s;
+        transition-behavior: allow-discrete;
+      }
+      .experiences__item[open]::details-content {
+        block-size: auto;
+      }
+    }
+  }
+
+  .experiences__item-summary:hover {
+    @apply bg-highlight/40;
   }
 
   @media (prefers-reduced-motion: reduce) {

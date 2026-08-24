@@ -23,7 +23,6 @@ export type Project = {
   url_applestore?: string;
 };
 
-
 export type CarouselLabels = {
   carousel: string;
   personal: string;

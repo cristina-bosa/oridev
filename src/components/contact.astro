@@ -33,15 +33,17 @@ const channels = [
 ---
 
 <section id="contact" class="contact" aria-labelledby="contact-title">
-  <div class="contact__intro">
-    <h2 id="contact-title" class="contact__title">{t.contact.title}</h2>
+  <div class="contact__intro reveal">
+    <h2 id="contact-title" class="contact__title section-title">
+      {t.contact.title}
+    </h2>
     <p class="contact__description">{t.contact.description}</p>
   </div>
 
   <ul class="contact__list">
     {
       channels.map(({ label, value, href, icon: Icon, external }) => (
-        <li class="contact__item">
+        <li class="contact__item reveal">
           <a
             class="contact__link"
             href={href}

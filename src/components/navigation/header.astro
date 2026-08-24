@@ -133,6 +133,22 @@ const links = [
     @apply text-ink;
     @apply hover:text-brand;
   }
+  /* Subrayado que crece desde la izquierda al pasar por encima. */
+  .nav__menu__item a {
+    @apply relative inline-block;
+  }
+  .nav__menu__item a::after {
+    content: "";
+    @apply absolute left-0 -bottom-0.5 h-px w-full;
+    background-color: currentColor;
+    transform-origin: left center;
+    scale: 0 1;
+    transition: scale 0.2s ease-out;
+  }
+  .nav__menu__item a:hover::after,
+  .nav__menu__item a:focus-visible::after {
+    scale: 1 1;
+  }
 
   /* ── Menú móvil ──────────────────────────────────────────── */
   .nav__mobile {
@@ -151,6 +167,9 @@ const links = [
   .nav__mobile[open] .nav__burger-icon--open {
     display: none;
   }
+  .nav__burger {
+    @apply transition-colors duration-200;
+  }
 
   /* Se ancla al `.header`, que al ser sticky ya es bloque contenedor. */
   .nav__panel {
@@ -165,6 +184,29 @@ const links = [
   }
   .nav__panel__item + .nav__panel__item {
     @apply border-t border-solid border-border;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .nav__mobile[open] .nav__panel {
+      animation: panel-in 0.2s ease-out both;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav__menu__item a::after {
+      transition: none;
+    }
+  }
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      translate: 0 -0.5rem;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
   }
 
   @keyframes header-blur {

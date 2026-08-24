@@ -49,7 +49,7 @@ export const en: Translation = {
         summary: "Corporate website for the company.",
         description:
           "NRG Consulting is an energy consulting firm that offers innovative, sustainable solutions to optimise energy consumption and reduce costs.",
-        title_link: "NRG Consulting"
+        title_link: "NRG Consulting",
       },
       "seroil-gas-ahorro": {
         summary: "Web platform focused on billing.",

@@ -46,7 +46,10 @@ export interface Translation {
     personalBadge: string;
     closeDialog: string;
     tags: Record<TagId, string>;
-    items: Record<ProjectId, { summary: string; description: string; title_link?: string }>;
+    items: Record<
+      ProjectId,
+      { summary: string; description: string; title_link?: string }
+    >;
   };
   experience: {
     title: string;

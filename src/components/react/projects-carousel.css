@@ -58,6 +58,13 @@
   @apply border border-solid border-border bg-surface;
   transform-origin: 50% 100%;
   @apply hover:border-brand hover:shadow-lg hover:scale-105 hover:cursor-pointer;
+  /* Sin `transition` el `scale` del hover saltaba de golpe. Se listan las
+     propiedades una a una: `all` pisaría el `rotate`/`translate` que anima
+     el arco con la timeline de scroll. */
+  transition:
+    scale 0.25s ease-out,
+    border-color 0.25s ease-out,
+    box-shadow 0.25s ease-out;
 }
 
 @supports (animation-timeline: view()) {
@@ -135,6 +142,10 @@
 }
 .project__tag {
   @apply inline-block px-2 py-1 text-sm bg-accent-100 text-black;
+  transition: translate 0.2s ease-out;
+}
+.project:hover .project__tag {
+  translate: 0 -2px;
 }
 .project__link {
   @apply inline-flex items-center gap-1 mt-2;
@@ -145,6 +156,10 @@
 @media (prefers-reduced-motion: reduce) {
   .projects__viewport {
     scroll-behavior: auto;
+  }
+  .project,
+  .project__tag {
+    transition: none;
   }
   .project {
     animation: none;

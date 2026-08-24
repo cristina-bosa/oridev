@@ -5,14 +5,16 @@ const t = useTranslations(Astro.currentLocale);
 ---
 
 <section id="skills" class="skills" aria-labelledby="skills-title">
-  <div class="skills__intro">
-    <h2 id="skills-title" class="skills__title">{t.skills.title}</h2>
+  <div class="skills__intro reveal">
+    <h2 id="skills-title" class="skills__title section-title">
+      {t.skills.title}
+    </h2>
   </div>
 
   <div class="skills__list">
     {
-      t.skills.groups.map(({ title, items }) => (
-        <div class="skills__group">
+      t.skills.groups.map(({ title, items }, index) => (
+        <div class="skills__group reveal" style={`--reveal-step:${index}`}>
           <h3 class="skills__group-title">{title}</h3>
           <ul class="skills__group-items">
             {items.map((skill) => (

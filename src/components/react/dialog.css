@@ -39,3 +39,36 @@
 .dialog__image {
   @apply w-full h-auto rounded-md;
 }
+
+/* `showModal()` pone el atributo `open`, que es lo que dispara la entrada.
+   Sin `prefers-reduced-motion` el diálogo aparece ya colocado. */
+@media (prefers-reduced-motion: no-preference) {
+  .dialog[open] {
+    animation: dialog-in 0.25s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .dialog[open]::backdrop {
+    animation: backdrop-in 0.25s ease-out both;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+    translate: 0 1rem;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
