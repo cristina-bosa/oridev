@@ -6,7 +6,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
-import { ArrowUpRight } from "lucide-react";
+
 
 import "./projects-carousel.css";
 import Dialog from "./dialog";

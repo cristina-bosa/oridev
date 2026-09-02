@@ -66,9 +66,9 @@ export const es: Translation = {
           "Triggers es una aplicación multiplataforma que sirve para visualizar indicadores generados a partir de distintas commodities en tiempo real.",
       },
       libri: {
-        summary: "PWA para gestionar biblioteca personal.",
+        summary: "En desarrollo.",
         description:
-          "PWA que permite al usuario crear y gestionar su biblioteca personal.",
+          "En desarrollo.",
       },
     },
   },

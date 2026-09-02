@@ -67,9 +67,9 @@ export const en: Translation = {
           "Triggers is a cross-platform app for visualising indicators generated from different commodities in real time.",
       },
       libri: {
-        summary: "PWA for managing a personal library.",
+        summary: "WIP.",
         description:
-          "PWA that lets users create and manage their personal library.",
+          "WIP",
       },
     },
   },
