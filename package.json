@@ -1,32 +1,48 @@
 {
   "name": "oridev",
-  "type": "module",
-  "version": "0.0.1",
-  "packageManager": "pnpm@10.17.0",
-  "engines": {
-    "node": ">=22.12.0"
+  "version": "0.1.0",
+  "private": true,
+  "imports": {
+    "#styles/*": "./src/styles/*"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier --write ."
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint && pnpm lint:messages",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "maintenance:on": "echo true | wrangler secret put MAINTENANCE",
+    "maintenance:off": "echo false | wrangler secret put MAINTENANCE",
+    "lint:messages": "node scripts/check-messages.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.4",
-    "@lucide/astro": "1.33.0",
-    "@tailwindcss/vite": "4.3.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
-    "astro": "7.2.3",
-    "lucide-react": "^1.33.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "tailwindcss": "4.3.3"
+    "@opennextjs/cloudflare": "^1.20.13",
+    "next": "16.4.3",
+    "next-intl": "^4.14.9",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.3",
+    "eslint-config-prettier": "^10.1.8",
     "prettier": "3.9.6",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "wrangler": "^4.152.0"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

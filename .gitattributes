@@ -1,0 +1,14 @@
+# Normalize line endings to LF in the repo and working tree (matches Prettier "endOfLine": "lf")
+* text=auto eol=lf
+
+# Binary files: never touch line endings
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.woff binary
+*.woff2 binary
+*.pdf binary
